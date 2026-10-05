@@ -1,0 +1,22 @@
+.slidein{
+    animation: slidein 0.3s linear   normal;
+}
+.slideout{
+    animation: slideout 0.3s linear normal;
+}
+@keyframes slidein {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translatex(0%);
+    }
+}
+@keyframes slideout {
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translatex(-100%);
+    }
+}

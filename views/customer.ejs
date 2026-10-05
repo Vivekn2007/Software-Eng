@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customers | Manch</title>
+
+</head>
+
+<body class="bg-[#f5f3ff]">
+
+<div class="flex min-h-screen not-md:block" >
+
+
+  <%- include('navbar.ejs'); %>
+ 
+
+  <!-- ================= MAIN ================= -->
+  <main class="flex-1 p-8">
+
+    <!-- HEADER -->
+    <div class="mb-6">
+      <h1 class="text-3xl font-bold text-[#111]">Customer Hub</h1>
+      <p class="text-gray-500 text-sm">Manage all users and engagement data</p>
+    </div>
+
+    <!-- ================= METRICS ================= -->
+    <div class="grid grid-cols-4 gap-4 mb-8 not-md:block not-md:space-y-3.5">
+
+      <div class="bg-white p-4 rounded-xl border">
+        <p class="text-gray-500 text-sm">Customers</p>
+        <h2 class="text-2xl font-bold">1,245</h2>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border">
+        <p class="text-gray-500 text-sm">Members</p>
+        <h2 class="text-2xl font-bold">540</h2>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border">
+        <p class="text-gray-500 text-sm">Emails</p>
+        <h2 class="text-2xl font-bold">3,120</h2>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl border">
+        <p class="text-gray-500 text-sm">Followers</p>
+        <h2 class="text-2xl font-bold">8,450</h2>
+      </div>
+
+    </div>
+
+    <!-- ================= TABS ================= -->
+    <div class="flex gap-6 border-b mb-6">
+
+      <button onclick="showTab('customers')" id="tab-customers"
+        class="pb-2 border-b-2 border-[#7C3AED] text-[#7C3AED] font-medium">
+        Customers
+      </button>
+
+      <button onclick="showTab('members')" id="tab-members"
+        class="pb-2 text-gray-500">
+        Members
+      </button>
+
+      <button onclick="showTab('emails')" id="tab-emails"
+        class="pb-2 text-gray-500">
+        Emails
+      </button>
+
+      <button onclick="showTab('followers')" id="tab-followers"
+        class="pb-2 text-gray-500">
+        Followers
+      </button>
+
+    </div>
+
+    <!-- ================= TAB CONTENT ================= -->
+
+    <!-- CUSTOMERS -->
+    <div id="customers" class="tab-content">
+
+      <div class="bg-white rounded-xl border overflow-hidden">
+
+        <div class="grid grid-cols-4 bg-gray-50 p-3 text-sm text-gray-500">
+          <div>Name</div>
+          <div>Email</div>
+          <div>Status</div>
+          <div>Joined</div>
+        </div>
+
+        <div class="grid grid-cols-4 p-3 border-t hover:bg-gray-50">
+          <div class="font-medium">Rahul Sharma</div>
+          <div class="text-gray-500">rahul@gmail.com</div>
+          <div><span class="text-green-600">Active</span></div>
+          <div class="text-gray-500">Jan 2026</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- MEMBERS -->
+    <div id="members" class="tab-content hidden">
+      <div class="bg-white p-6 rounded-xl border">
+        <h2 class="font-semibold">Members</h2>
+        <p class="text-gray-500 text-sm">No members yet</p>
+      </div>
+    </div>
+
+    <!-- EMAILS -->
+    <div id="emails" class="tab-content hidden">
+      <div class="bg-white p-6 rounded-xl border">
+        <h2 class="font-semibold">Email Subscribers</h2>
+      </div>
+    </div>
+
+    <!-- FOLLOWERS -->
+    <div id="followers" class="tab-content hidden">
+      <div class="bg-white p-6 rounded-xl border">
+        <h2 class="font-semibold">Followers</h2>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- ================= TAB SCRIPT ================= -->
+<script>
+function showTab(tab) {
+
+  // hide all
+  document.querySelectorAll('.tab-content').forEach(el => {
+    el.classList.add('hidden');
+  });
+
+  // show selected
+  document.getElementById(tab).classList.remove('hidden');
+
+  // reset tabs
+  document.querySelectorAll('button[id^="tab-"]').forEach(btn => {
+    btn.classList.remove('border-b-2','border-[#7C3AED]','text-[#7C3AED]');
+    btn.classList.add('text-gray-500');
+  });
+
+  // activate selected
+  const active = document.getElementById('tab-' + tab);
+  active.classList.add('border-b-2','border-[#7C3AED]','text-[#7C3AED]');
+  active.classList.remove('text-gray-500');
+}
+</script>
+
+</body>
+</html>

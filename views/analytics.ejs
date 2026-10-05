@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manch Premium Analytics</title>
+
+  <!-- Tailwind CSS Script CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- ChartJS Dynamic Framework -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Plus Jakarta Sans Fonts for Premium Tracking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f5f3ff;
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-[#7C3AED]/10 selection:text-[#7C3AED]">
+
+
+
+  <div class="flex h-[100vh] overflow-y-auto not-md:block">
+    <%- include("navbar.ejs"); %>
+
+      <!-- Workspace Shell Main View -->
+      <main class="flex-1 p-8 lg:p-12 overflow-y-auto">
+
+        <!-- Header Block Component -->
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E5E7EB] pb-6 mb-8">
+          <div>
+            <p class="text-xs font-bold text-[#7C3AED] uppercase tracking-widest">Performance Insights</p>
+            <h1 class="text-3xl font-extrabold text-[#111111] tracking-tight mt-1">Analytics Dashboard</h1>
+            <p class="text-sm text-[#6B7280] font-medium mt-0.5">Monitor sales velocity, conversion drop-offs, and
+              audience data signals.</p>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <button
+              class="w-11 h-11 bg-white hover:bg-gray-50 transition-colors rounded-xl border border-[#E5E7EB] flex items-center justify-center shadow-sm relative cursor-pointer">
+              <span class="w-2 h-2 rounded-full bg-[#EC4899] absolute top-3.5 right-3.5"></span>
+              <span class="text-sm">🔔</span>
+            </button>
+            <div
+              class="w-11 h-11 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] flex items-center justify-center text-white font-bold text-sm shadow-md border-2 border-white cursor-pointer">
+              M
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Analytics Filters Bar -->
+        <div
+          class="bg-white border border-[#E5E7EB] rounded-2xl p-3.5 flex flex-wrap items-center justify-between gap-4 mb-8 shadow-sm">
+          <div class="flex items-center gap-3">
+            <select
+              class="px-4 py-2 bg-gray-50 hover:bg-gray-100 transition-colors rounded-xl border border-[#E5E7EB] text-xs font-bold text-[#111111] focus:outline-none focus:border-[#7C3AED] cursor-pointer">
+              <option>All Products</option>
+              <option>JEE Notes Bundle</option>
+              <option>Physics Bundle</option>
+            </select>
+            <select
+              class="px-4 py-2 bg-gray-50 hover:bg-gray-100 transition-colors rounded-xl border border-[#E5E7EB] text-xs font-bold text-[#111111] focus:outline-none focus:border-[#7C3AED] cursor-pointer">
+              <option>Last 30 Days</option>
+              <option>Last 7 Days</option>
+              <option>Lifetime</option>
+            </select>
+          </div>
+          <button
+            class="bg-[#111111] hover:bg-[#222222] text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center gap-2 cursor-pointer active:scale-98">
+            Export CSV report
+          </button>
+        </div>
+
+        <!-- KPI Metric Cards Grid Layer -->
+        <div class="grid grid-cols-12 gap-6 mb-8">
+          <div
+            class="col-span-12 lg:col-span-4 bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <p class="text-xs font-bold text-[#6B7280] uppercase tracking-wider">Total Gross Revenue</p>
+              <h2 class="text-3xl font-extrabold text-[#111111] tracking-tight mt-2">₹0</h2>
+            </div>
+            <p class="text-xs text-[#22C55E] font-bold mt-4 flex items-center gap-1">
+              <span>▲ 0%</span> <span class="text-[#6B7280] font-medium">from last month</span>
+            </p>
+          </div>
+
+          <div
+            class="col-span-12 sm:col-span-4 lg:col-span-2 bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm">
+            <p class="text-xs font-bold text-[#6B7280] uppercase tracking-wider">Orders Passed</p>
+            <h2 class="text-3xl font-extrabold text-[#111111] tracking-tight mt-2">0</h2>
+            <div class="w-full bg-gray-100 h-1.5 rounded-full mt-4 overflow-hidden">
+              <div class="bg-[#7C3AED] h-full w-3/4 rounded-full"></div>
+            </div>
+          </div>
+
+          <div
+            class="col-span-12 sm:col-span-4 lg:col-span-2 bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm">
+            <p class="text-xs font-bold text-[#6B7280] uppercase tracking-wider">Unique Buyers</p>
+            <h2 class="text-3xl font-extrabold text-[#111111] tracking-tight mt-2">0</h2>
+            <div class="w-full bg-gray-100 h-1.5 rounded-full mt-4 overflow-hidden">
+              <div class="bg-[#EC4899] h-full w-[55%] rounded-full"></div>
+            </div>
+          </div>
+
+          <div
+            class="col-span-12 sm:col-span-4 lg:col-span-4 bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start">
+                <p class="text-xs font-bold text-[#6B7280] uppercase tracking-wider">Total Store Views</p>
+                <span
+                  class="bg-[#7C3AED]/10 text-[#7C3AED] text-[10px] px-2 py-0.5 rounded font-bold uppercase">Live</span>
+              </div>
+              <h2 class="text-3xl font-extrabold text-[#7C3AED] tracking-tight mt-2">11</h2>
+            </div>
+            <p class="text-xs text-[#6B7280] font-medium mt-4">Avg. 42 concurrent users active</p>
+          </div>
+        </div>
+
+        <!-- Revenue Trend Chart Showcase Card -->
+        <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm mb-8">
+          <div class="flex justify-between items-center mb-6">
+            <div>
+              <h3 class="text-base font-extrabold text-[#111111] tracking-tight">Revenue Progression Trends</h3>
+              <p class="text-xs text-[#6B7280] font-medium mt-0.5">Performance index logs scaled per weekly periods.</p>
+            </div>
+            <div class="text-xs font-bold bg-purple-50 text-[#7C3AED] px-3 py-1.5 rounded-xl shadow-inner">
+              +18.2% Growth Velocity
+            </div>
+          </div>
+          <div class="h-64">
+            <canvas id="viewsChart"></canvas>
+          </div>
+        </div>
+
+
+        <!-- Secondary Insights Framework Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+          <div class="lg:col-span-4 bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm">
+            <div class="flex justify-between items-center mb-6">
+              <div>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-[#6B7280]">Acquisition</p>
+                <h3 class="text-xl font-extrabold mt-1">Traffic Sources</h3>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center py-6">
+              <div class="w-40 h-40 rounded-full border-[14px] border-[#F97316] relative">
+                <div class="absolute inset-4 bg-white rounded-full flex flex-col items-center justify-center">
+                  <span class="text-[10px] text-gray-400">TOTAL</span>
+                  <span class="text-3xl font-bold">11</span>
+                  <span class="text-xs text-gray-500">sessions</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between"><span>Instagram</span><span>8</span></div>
+              <div class="flex justify-between"><span>Direct</span><span>2</span></div>
+              <div class="flex justify-between"><span>WhatsApp</span><span>1</span></div>
+              <div class="flex justify-between"><span>YouTube</span><span>0</span></div>
+              <div class="flex justify-between"><span>Other</span><span>0</span></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm">
+            <div class="flex justify-between items-center mb-5">
+              <div>
+                <p class="text-[10px] uppercase tracking-[0.25em] text-[#6B7280]">Inventory</p>
+                <h3 class="text-xl font-extrabold mt-1">Top Performing Products</h3>
+              </div>
+              <span class="text-[#F97316] text-sm font-bold">View all →</span>
+            </div>
+
+            <div class="grid grid-cols-4 text-xs uppercase text-gray-400 border-b pb-3">
+              <div>Product</div>
+              <div>Views</div>
+              <div>Sales</div>
+              <div>Revenue</div>
+            </div>
+
+            <div class="text-center py-16">
+              <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-50 flex items-center justify-center text-2xl">📦</div>
+              <h4 class="font-bold mt-4">No products yet</h4>
+              <p class="text-sm text-[#6B7280] mt-2">Publish your first product to start tracking performance.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+
+          <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm">
+            <h3 class="text-xl font-extrabold mb-4">Conversion Funnel</h3>
+            <div class="space-y-5">
+              <div>
+                <div class="flex justify-between text-sm"><span>Visitors</span><span>11 (100%)</span></div>
+                <div class="h-2 bg-gray-100 rounded-full mt-2">
+                  <div class="h-2 bg-[#7C3AED] rounded-full w-full"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm"><span>Product Views</span><span>0 (0%)</span></div>
+                <div class="h-2 bg-gray-100 rounded-full mt-2"></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm"><span>Add To Cart</span><span>0 (0%)</span></div>
+                <div class="h-2 bg-gray-100 rounded-full mt-2"></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm"><span>Purchases</span><span>0 (0%)</span></div>
+                <div class="h-2 bg-gray-100 rounded-full mt-2"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-2 bg-white rounded-2xl border border-[#E5E7EB] p-6 shadow-sm">
+            <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 shadow-sm">
+
+              <div class="flex items-center justify-between mb-5">
+                <h3 class="text-lg font-bold text-[#111111]">
+                  Audience Insights
+                </h3>
+
+                <div class="px-2 py-1 rounded-lg bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-medium">
+                  Live
+                </div>
+              </div>
+
+              <div class="space-y-5">
+
+                <!-- Visitor Type -->
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-[#6B7280] mb-3">
+                    Visitor Type
+                  </p>
+
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-[#111111]">Returning Visitors</span>
+                    <span class="font-semibold">0%</span>
+                  </div>
+
+                  <div class="flex justify-between text-sm">
+                    <span class="text-[#111111]">New Visitors</span>
+                    <span class="font-semibold">100%</span>
+                  </div>
+                </div>
+
+                <hr class="border-[#E5E7EB]">
+
+                <!-- Device Split -->
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-[#6B7280] mb-3">
+                    Device Split
+                  </p>
+
+                  <div class="flex justify-between text-sm mb-2">
+                    <span>Mobile</span>
+                    <span class="font-semibold">72%</span>
+                  </div>
+
+                  <div class="h-2 bg-gray-100 rounded-full mb-4">
+                    <div class="h-2 w-[72%] bg-[#7C3AED] rounded-full"></div>
+                  </div>
+
+                  <div class="flex justify-between text-sm mb-2">
+                    <span>Desktop</span>
+                    <span class="font-semibold">28%</span>
+                  </div>
+
+                  <div class="h-2 bg-gray-100 rounded-full">
+                    <div class="h-2 w-[28%] bg-[#EC4899] rounded-full"></div>
+                  </div>
+                </div>
+
+                <hr class="border-[#E5E7EB]">
+
+                <!-- Session -->
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-[#6B7280] mb-3">
+                    Engagement
+                  </p>
+
+                  <div class="flex justify-between items-center">
+                    <span class="text-sm text-[#111111]">
+                      Average Session
+                    </span>
+
+                    <span class="text-lg font-bold text-[#111111]">
+                      0m
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </main>
+  </div>
+
+  <!-- Dynamic Rendering Script logic -->
+  <script>
+    const ctx = document.getElementById('viewsChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['May 1', 'May 5', 'May 10', 'May 15', 'May 20', 'May 25', 'May 30'],
+        datasets: [{
+          data: [120, 240, 180, 560, 410, 980, 1204],
+          borderColor: '#7C3AED',
+          borderWidth: 2.5,
+          pointBackgroundColor: '#FFFFFF',
+          pointBorderColor: '#7C3AED',
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          backgroundColor: (context) => {
+            const bgColor = context.chart.ctx.createLinearGradient(0, 0, 0, 240);
+            bgColor.addColorStop(0, 'rgba(124, 58, 237, 0.12)');
+            bgColor.addColorStop(1, 'rgba(124, 58, 237, 0.00)');
+            return bgColor;
+          },
+          fill: true,
+          tension: 0.35
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              color: '#9CA3AF',
+              font: { family: 'Plus Jakarta Sans', size: 11, weight: '500' }
+            }
+          },
+          y: {
+            grid: { color: '#F3F4F6' },
+            ticks: {
+              color: '#9CA3AF',
+              font: { family: 'Plus Jakarta Sans', size: 11, weight: '500' }
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

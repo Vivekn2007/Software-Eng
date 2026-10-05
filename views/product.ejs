@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/output.css">
+
+</head>
+
+<body class="flex not-md:block">
+    <%- include("navbar.ejs"); %>
+        <div class="outbox w-[80vw] bg-[#f5f3ff] not-md:w-[100vw] not-md:h-[100vh] ">
+            <div class="head flex h-[15vh] w-[80vw] justify-center items-center not-md:w-[100vw] not-md:h-[15vmax]">
+                <div class="inner  flex w-[75vw] justify-between items-center not-md:w-[90vw]">
+                    <h1 class="text-[#1A0533] text-4xl font-bold font-sans ">Products</h1>
+                    <div class="right flex justify-center items-center space-x-3 ">
+                        <div
+                            class="noti w-[5vmin] h-[5vmin] flex justify-center items-center rounded-2xl border-2 border-black  not-md:hidden hover:cursor-pointer">
+                            <i class="fa-solid fa-bell text-2xl   "></i>
+                        </div>
+                        <div
+                            class="noti w-[5vmin] h-[5vmin]  rounded-[50%] flex justify-center items-center bg-gradient-to-br from-[#9634f2] to-[#f8a10c] not-md:hidden hover:cursor-pointer">
+                            <p class="text-2xl text-white font-serif"><%=symbol%></p>
+                        </div>
+
+                        <button
+                            class="w-[12vmax] h-[5vmin] bg-gradient-to-br from-[#7c3aed] to-[#9333ea] text-white  rounded-2xl text-xl not-md:h-[17vmin] not-md:w-[12vmax] not-md:text-base hover:cursor-pointer">Add
+                            new product</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="inputs ">
+                <div class="search w-[30vw] flex  not-md:w-[100vw] not-md:justify-center ">
+                    <div
+                        class="innr w-[30vw] flex rounded-2xl border-2 border-gray-400 ml-10 not-md:w-[90vw] not-md:ml-0 ">
+                        <input type="search"
+                            class="w-[25vw] h-[5vh] text-gray-600 bg-white outline-0 p-2.5 border-r-2 border-gray-400 rounded-l-2xl not-md:w-[70vw] not-md:h-[7vmax]"
+                            name="search  " placeholder="Seach for product">
+                        <button
+                            class="bg-white w-[5vw] h-[5vh] rounded-r-2xl text-gray-700 not-md:w-[20vw] not-md:h-[7vmax] hover:cursor-pointer hover:bg-gray-100">Search</button>
+                    </div>
+
+                </div>
+            </div>
+            <iframe width="100%" height="75%" src="/prodetails"></iframe>
+        </div>
+
+        </div>
+
+
+
+
+</body>
+
+</html>

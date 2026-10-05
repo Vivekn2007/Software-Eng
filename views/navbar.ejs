@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/nav.css">
+</head>
+
+<body>
+    <div class="mobileNav h-[8vmax] w-[100vw] bg-[#1A0533] flex justify-center items-center md:hidden">
+        <div class="innerbox h-[8vh] w-[90vw] bg-[#1A0533] flex justify-between items-center">
+            <div class="logobox flex space-x-3.5   ">
+                <div class="mobilelogo bg-yellow-50 h-[2.2rem] w-[2.2rem] rounded-xl "></div>
+                <div class="Namebox">
+                    <p class="font-serif text-[25px] text-white">Manch</p>
+                </div>
+            </div>
+            <div class="side flex justify-center items-center space-x-2.5">
+                <div
+                    class="noti w-[2.5rem] h-[2.5rem] flex justify-center items-center rounded-2xl border-2 border-white  ">
+                    <i class="fa-solid fa-bell text-2xl   text-white  "></i>
+                </div>
+                <div
+                    class="noti w-[2.5rem] h-[2.5rem]  rounded-[50%] flex justify-center items-center bg-gradient-to-br from-[#9634f2] to-[#f8a10c] ">
+                    <p class="text-2xl text-white font-serif">
+                        <%=symbol%>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="box1  bg-[#1A0533] w-[20vw] h-[100vh] not-md:w-[100vw] not-md:hidden">
+
+        <div class="box2 w-[20vw] h-[15vh] flex justify-center items-center not-md:w-[100vw]  not-md:hidden">
+            <div class="logobox flex space-x-3.5 ">
+                <div class=" bg-yellow-50 h-[2.3rem] w-[2.3rem] rounded-xl "></button></div>
+                <div class="Namebox">
+                    <p class="font-serif text-[25px] text-white">Manch</p>
+                </div>
+            </div>
+        </div>
+        <hr class="text-gray-600">
+        <div class="box3  flex justify-center">
+            <div class="innerbox text-[#FFFFFF8C] w-[17vw] space-y-4 mt-4 not-md:w-[90vw] not-md:space-y-6 not-md:mt-6">
+                <div class="main text-sm font-serif text-[#FFFFFF4D]  not-md:text-lg">
+                    <p>Main</p>
+                </div>
+                <div
+                    class="Dash text-base text-center border-1 border-gray-600 w-[17vw] h-[4vh] rounded-xl hover:bg-[#7C3AED4D] hover:text-[#C4B5FD] not-md:text-xl not-md:w-[90vw]">
+                    <a href="/dashboard">Dashboard</a>
+                </div>
+                <div
+                    class="prod text-base text-center border-1  border-gray-600 w-[17vw] h-[4vh] rounded-xl hover:bg-[#7C3AED4D] hover:text-[#C4B5FD] not-md:text-xl not-md:w-[90vw]">
+                    <a href="/product">Product</a>
+                </div>
+                <div
+                    class="store text-base text-center border-1  border-gray-600 w-[17vw] h-[4vh] rounded-xl hover:bg-[#7C3AED4D] hover:text-[#C4B5FD] not-md:text-xl not-md:w-[90vw]">
+                    <a>Store</a>
+                </div>
+                <hr>
+                <div class="grow text-sm font-serif text-[#FFFFFF4D] not-md:text-lg">
+                    <a>Grow</a>
+                </div>
+                <div
+                    class="anal text-base text-center border-1  border-gray-600 w-[17vw] h-[4vh] rounded-xl hover:bg-[#7C3AED4D] hover:text-[#C4B5FD] not-md:text-xl not-md:w-[90vw]">
+                    <a href="/analytic">Analytics</a>
+                </div>
+                <div class="customer text-base text-center border-1  border-gray-600 w-[17vw] h-[4vh] rounded-xl hover:bg-[#7C3AED4D] hover:text-[#C4B5FD] not-md:text-xl not-md:w-[90vw]">
+                    <a href="/customer">Customer</a>
+                </div>
+                <hr>
+                <div class="setting text-base text-center border-1  border-gray-600 w-[17vw] h-[4vh] rounded-xl hover:bg-[#7C3AED4D] hover:text-[#C4B5FD] not-md:text-xl not-md:w-[90vw]">
+                    <a href="/settings">Setting</a>
+                </div>       
+            </div>
+        </div>
+    </div>
+    <script src="/js/nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Product Posts - Manch</title>
+
+<!-- Tailwind CSS v4 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #F8F9FA;
+}
+</style>
+</head>
+
+<body>
+
+<div class="flex min-h-screen">
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="bg-[#1A0533] w-[260px] min-h-screen flex flex-col justify-between p-5 shrink-0 shadow-2xl">
+    <div>
+        <!-- Logo -->
+        <div class="flex items-center gap-3.5 p-2.5">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] shadow-md"></div>
+            <div>
+                <p class="text-white text-lg font-extrabold tracking-tight">Manch</p>
+                <p class="text-[11px] font-medium text-white/40 uppercase tracking-wider mt-0.5">Creator Dashboard</p>
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="border-t border-white/10 mt-6 pt-6">
+            <p class="text-[10px] uppercase font-bold tracking-widest text-white/30 px-3 mb-2">Main</p>
+            <div class="space-y-1">
+                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">Dashboard</a>
+                <a class="block px-3.5 py-2.5 text-sm font-bold rounded-xl bg-[#7C3AED33] border border-[#7C3AED55] text-white shadow-inner cursor-pointer">Products</a>
+                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">Orders</a>
+                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">Customers</a>
+            </div>
+        </div>
+
+        <!-- GROW -->
+        <div class="border-t border-white/10 mt-6 pt-6">
+            <p class="text-[10px] uppercase font-bold tracking-widest text-white/30 px-3 mb-2">Grow</p>
+            <div class="space-y-1">
+                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">Analytics</a>
+                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">Marketing</a>
+                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">Blog</a>
+            </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <div class="border-t border-white/10 mt-6 pt-4">
+            <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">Settings</a>
+        </div>
+    </div>
+
+    <!-- Store Card -->
+    <div class="bg-white/5 rounded-2xl p-4 border border-white/10 mx-1">
+        <p class="text-[#EC4899] text-xs font-bold uppercase tracking-wider">Your Store</p>
+        <p class="text-white/60 text-xs mt-1.5 font-medium truncate">manch.in/store/live</p>
+    </div>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="flex-1 p-8 lg:p-12 overflow-y-auto">
+
+    <!-- Top Navigation Tabs Layout -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[#E5E7EB] pb-6 mb-8">
+        <div class="bg-[#1A0533] rounded-xl px-4 py-2 flex flex-wrap gap-1 shadow-md">
+            <a class="px-4 py-2 text-sm font-bold text-white bg-white/10 rounded-lg cursor-pointer border-b-2 border-[#7C3AED]">Posts</a>
+            <a class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-all">Settings</a>
+            <a class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-all">Pages</a>
+            <a class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-all">Pricing</a>
+            <a class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-all">Members</a>
+            <a class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-all">Video Library</a>
+            <a class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg cursor-pointer transition-all">Publish</a>
+        </div>
+
+        <div class="flex items-center gap-4 self-end md:self-auto">
+            <button class="w-11 h-11 bg-white rounded-xl border border-[#E5E7EB] flex items-center justify-center shadow-sm relative cursor-pointer">
+                <span class="w-2 h-2 rounded-full bg-[#EC4899] absolute top-3 right-3"></span>🔔
+            </button>
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] flex items-center justify-center text-white font-bold shadow-md select-none">M</div>
+        </div>
+    </div>
+
+    <!-- MAIN WORKSPACE CARD -->
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl border border-[#E5E7EB] shadow-sm overflow-hidden pb-12">
+        <!-- Abstract Header Banner Graphic -->
+        <div class="w-full h-48 bg-[#F8FBFD] border-b border-[#E5E7EB] relative overflow-hidden flex items-center justify-around px-12">
+            <div class="absolute w-44 h-44 rounded-full bg-[#4FD1C5]/40 -left-6 top-2 blur-[1px]"></div>
+            <div class="absolute w-40 h-40 rounded-full bg-[#3B82F6]/70 left-36 -bottom-6"></div>
+            <div class="absolute w-36 h-36 rounded-full bg-[#D9F99D]/80 left-[340px] top-6 mix-blend-multiply"></div>
+            <div class="absolute w-32 h-32 rounded-full bg-[#4FD1C5]/50 right-64 -bottom-4"></div>
+            <div class="absolute w-36 h-36 rounded-full bg-[#3B82F6]/70 right-16 top-4"></div>
+            <div class="absolute w-28 h-28 rounded-full bg-[#D9F99D]/80 -right-4 -bottom-2 mix-blend-multiply"></div>
+        </div>
+
+        <!-- Dashboard Workspace Control Items -->
+        <div class="px-8 mt-8 flex flex-col items-center">
+            <div class="flex items-center gap-3 justify-center w-full mb-6">
+                <!-- Trigger Button for the Modal -->
+                <button onclick="openPostModal()" class="px-9 py-2.5 bg-[#8B2CF5] hover:bg-[#7C22DD] text-white text-base font-bold rounded-2xl shadow-md transition-all cursor-pointer">
+                    Create New Post
+                </button>
+                <button class="w-11 h-11 bg-white border border-[#E5E7EB] text-gray-400 font-bold tracking-widest rounded-xl flex items-center justify-center hover:bg-[#FAFAFA] shadow-sm transition-all cursor-pointer">•••</button>
+            </div>
+
+            <!-- Search Field -->
+            <div class="w-full max-w-4xl mb-6">
+<input 
+    type="text" 
+    id="search-input" 
+    placeholder="Search posts" 
+    class="w-full h-12 px-5 bg-[#F3F4F6] text-gray-700 font-medium placeholder-gray-400 rounded-xl outline-none focus:bg-gray-100/80 border border-transparent focus:border-gray-200 transition-all text-sm">
+            </div>
+
+            <!-- Dynamic Post Container List -->
+            <div id="posts-container" class="w-full max-w-4xl space-y-4">
+                <!-- Dynamic Content lands here. Base state fallback element: -->
+                <div id="empty-state" class="w-full border border-[#E5E7EB] rounded-2xl p-10 flex items-center justify-center bg-white min-h-[100px] shadow-2xs">
+                    <p class="text-gray-500 font-semibold text-sm tracking-tight">No published posts found</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</div>
+
+<!-- ================= CREATE POST ENGINE MODAL OVERLAY ================= -->
+<div id="create-post-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-4 transition-all animate-fade-in">
+    <div class="bg-white w-full max-w-xl rounded-3xl border border-[#E5E7EB] shadow-2xl overflow-hidden transform scale-95 transition-all duration-300 flex flex-col">
+        
+        <!-- Modal Head Frame -->
+        <div class="p-6 border-b border-[#E5E7EB] flex items-center justify-between bg-[#F8F9FA]">
+            <h3 class="text-xl font-extrabold text-[#111111]">Create New Content Post</h3>
+            <button onclick="closePostModal()" class="text-gray-400 hover:text-gray-600 font-bold text-xl px-2 cursor-pointer">&times;</button>
+        </div>
+
+        <!-- STAGE 1: Option Tab Matrix -->
+        <div id="modal-stage-options" class="p-6">
+            <p class="text-sm font-semibold text-gray-500 mb-4">Select what type of post you want to create:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button onclick="selectPostType('text')" class="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA] hover:bg-purple-50 hover:border-[#8B2CF5] transition-all group cursor-pointer text-left">
+                    <span class="text-2xl">📝</span>
+                    <div><p class="font-bold text-gray-800 group-hover:text-[#8B2CF5]">Text Post</p><p class="text-xs text-gray-400">Write an article or update</p></div>
+                </button>
+                <button onclick="selectPostType('image')" class="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA] hover:bg-purple-50 hover:border-[#8B2CF5] transition-all group cursor-pointer text-left">
+                    <span class="text-2xl">🖼️</span>
+                    <div><p class="font-bold text-gray-800 group-hover:text-[#8B2CF5]">Image</p><p class="text-xs text-gray-400">Share single or multiple photos</p></div>
+                </button>
+                <button onclick="selectPostType('video')" class="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA] hover:bg-purple-50 hover:border-[#8B2CF5] transition-all group cursor-pointer text-left">
+                    <span class="text-2xl">🎥</span>
+                    <div><p class="font-bold text-gray-800 group-hover:text-[#8B2CF5]">Video</p><p class="text-xs text-gray-400">Embed files or production links</p></div>
+                </button>
+                <button onclick="selectPostType('poll')" class="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA] hover:bg-purple-50 hover:border-[#8B2CF5] transition-all group cursor-pointer text-left">
+                    <span class="text-2xl">📊</span>
+                    <div><p class="font-bold text-gray-800 group-hover:text-[#8B2CF5]">Poll</p><p class="text-xs text-gray-400">Get input from your subscribers</p></div>
+                </button>
+                <button onclick="selectPostType('link')" class="flex items-center gap-4 p-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA] hover:bg-purple-50 hover:border-[#8B2CF5] transition-all group cursor-pointer text-left sm:col-span-2 justify-sm-center">
+                    <span class="text-2xl">🔗</span>
+                    <div><p class="font-bold text-gray-800 group-hover:text-[#8B2CF5]">External Link</p><p class="text-xs text-gray-400">Redirect audience to any URL</p></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- STAGE 2: Interactive Dynamic Forms Framework -->
+        <div id="modal-stage-form" class="p-6 hidden flex-1 flex flex-col justify-between">
+            <form id="post-submission-form" onsubmit="handlePostSubmit(event)" class="space-y-4">
+                <input type="hidden" id="selected-post-type">
+                
+                <!-- Universal Title Line -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Post Title</label>
+                    <input type="text" id="post-title-input" required placeholder="Give your post an engaging title..." class="w-full h-11 px-4 rounded-xl border border-[#E5E7EB] focus:outline-none focus:border-[#8B2CF5] text-sm">
+                </div>
+
+                <!-- Context-Injected Variant Sections -->
+                <div id="form-body-text" class="hidden">
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Body Text</label>
+                    <textarea id="post-text-content" rows="4" placeholder="Type or paste your content segment here..." class="w-full p-4 rounded-xl border border-[#E5E7EB] focus:outline-none focus:border-[#8B2CF5] text-sm resize-none"></textarea>
+                </div>
+
+                <div id="form-body-image" class="hidden">
+    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Upload Image File</label>
+    <label for="post-image-file" class="w-full min-h-[100px] px-4 rounded-xl border-2 border-dashed border-[#E5E7EB] hover:border-[#8B2CF5] bg-[#FAFAFA] flex flex-col items-center justify-center gap-1 cursor-pointer transition-all">
+        <span class="text-xl">📁</span>
+        <span id="file-upload-label" class="text-xs text-gray-500 font-semibold text-center">Click to browse or drop your image here</span>
+        <input type="file" id="post-image-file" accept="image/*" class="hidden" onchange="updateFileLabel(this)">
+    </label>
+</div>
+                <div id="form-body-video" class="hidden space-y-3">
+    <div>
+        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Video Embed URL</label>
+        <input type="url" id="post-video-url" placeholder="Paste YouTube, Vimeo or web link..." class="w-full h-11 px-4 rounded-xl border border-[#E5E7EB] focus:outline-none focus:border-[#8B2CF5] text-sm">
+    </div>
+    
+    <div class="relative flex items-center justify-center my-2">
+        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-200"></div></div>
+        <span class="relative px-3 bg-white text-[10px] font-bold text-gray-400 uppercase">Or Upload from Device</span>
+    </div>
+
+    <div>
+        <label for="post-video-file" class="w-full min-h-[100px] px-4 rounded-xl border-2 border-dashed border-[#E5E7EB] hover:border-[#8B2CF5] bg-[#FAFAFA] flex flex-col items-center justify-center gap-1 cursor-pointer transition-all">
+            <span class="text-xl">🎬</span>
+            <span id="video-upload-label" class="text-xs text-gray-500 font-semibold text-center">Click to browse or drop your video here</span>
+            <input type="file" id="post-video-file" accept="video/*" class="hidden" onchange="updateVideoLabel(this)">
+        </label>
+    </div>
+</div>
+
+                <div id="form-body-poll" class="hidden space-y-2">
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5">Poll Options</label>
+                    <input type="text" id="poll-opt-1" placeholder="Choice option 1" class="w-full h-10 px-4 rounded-xl border border-[#E5E7EB] focus:outline-none focus:border-[#8B2CF5] text-xs">
+                    <input type="text" id="poll-opt-2" placeholder="Choice option 2" class="w-full h-10 px-4 rounded-xl border border-[#E5E7EB] focus:outline-none focus:border-[#8B2CF5] text-xs">
+                </div>
+
+                <div id="form-body-link" class="hidden">
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">External Target URL</label>
+                    <input type="url" id="post-link-url" placeholder="https://example.com/destination" class="w-full h-11 px-4 rounded-xl border border-[#E5E7EB] focus:outline-none focus:border-[#8B2CF5] text-sm">
+                </div>
+
+                <!-- Footer Nav Controls inside form structure -->
+                <div class="flex items-center justify-between pt-4 border-t border-[#E5E7EB] mt-4">
+                    <button type="button" onclick="resetToOptionsStage()" class="px-5 py-2 text-sm font-bold text-gray-500 hover:text-gray-700 cursor-pointer">← Back</button>
+                    <button type="submit" class="px-8 py-2.5 bg-[#8B2CF5] hover:bg-[#7C22DD] text-white text-sm font-bold rounded-xl shadow-md transition-all cursor-pointer">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ================= SYSTEM ACTION CONTROL SCRIPTS ================= -->
+<script>
+const modal = document.getElementById('create-post-modal');
+const optionsStage = document.getElementById('modal-stage-options');
+const formStage = document.getElementById('modal-stage-form');
+const emptyState = document.getElementById('empty-state');
+const postsContainer = document.getElementById('posts-container');
+
+// Form specific variable definitions
+const typeField = document.getElementById('selected-post-type');
+const titleField = document.getElementById('post-title-input');
+
+function openPostModal() {
+    modal.classList.remove('hidden');
+    resetToOptionsStage();
+}
+
+function closePostModal() {
+    modal.classList.add('hidden');
+}
+
+function resetToOptionsStage() {
+    optionsStage.classList.remove('hidden');
+    formStage.classList.add('hidden');
+    document.getElementById('post-submission-form').reset();
+    
+    // Clear out custom drop-zone labels to keep states pristine
+    document.getElementById('file-upload-label').innerText = "Click to browse or drop your image here";
+    document.getElementById('video-upload-label').innerText = "Click to browse or drop your video here";
+}
+function selectPostType(type) {
+    optionsStage.classList.add('hidden');
+    formStage.classList.remove('hidden');
+    typeField.value = type;
+
+    // Hide all input categories first
+    ['text', 'image', 'video', 'poll', 'link'].forEach(t => {
+        document.getElementById(`form-body-${t}`).classList.add('hidden');
+    });
+
+    // Unveil active selected framework
+    document.getElementById(`form-body-${type}`).classList.remove('hidden');
+}
+
+function handlePostSubmit(event) {
+    event.preventDefault();
+    
+    const type = typeField.value;
+    const title = titleField.value.trim();
+    if(!title) return;
+
+    // Remove empty screen prompt placeholder on first submission
+    if (emptyState) {
+        emptyState.remove();
+    }
+
+    // Create a new data payload node item representing client entry
+    const postCard = document.createElement('div');
+    postCard.className = "w-full border border-[#E5E7EB] rounded-2xl p-6 bg-white shadow-xs hover:shadow-md transition-all flex flex-col gap-3 animate-fade-in";
+    
+    // Icon badge map matching context selections
+    const badges = { text: '📝 Text', image: '🖼️ Image', video: '🎥 Video', poll: '📊 Poll', link: '🔗 Link' };
+
+    // Capture context configurations based on active chosen inputs
+    let specificContentHTML = '';
+    if(type === 'text') {
+        specificContentHTML = `<p class="text-sm text-gray-600 leading-relaxed">${document.getElementById('post-text-content').value}</p>`;
+   } else if(type === 'image') {
+    const fileInput = document.getElementById('post-image-file');
+    let fallbackUrl = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800';
+    
+    if (fileInput.files && fileInput.files[0]) {
+        // Generate a temporary local browser URL for the user's selected file
+        fallbackUrl = URL.createObjectURL(fileInput.files[0]);
+    }
+    specificContentHTML = `<img src="${fallbackUrl}" class="rounded-xl max-h-64 w-full object-cover border border-gray-100" alt="post attachment">`;
+} else if(type === 'video') {
+    const videoUrlInput = document.getElementById('post-video-url').value.trim();
+    const videoFileInput = document.getElementById('post-video-file');
+    
+    if (videoFileInput.files && videoFileInput.files[0]) {
+        // If they uploaded a local video file, create a local playback URL
+        const localVideoUrl = URL.createObjectURL(videoFileInput.files[0]);
+        specificContentHTML = `
+            <video controls class="rounded-xl max-h-72 w-full bg-black border border-gray-100 shadow-inner">
+                <source src="${localVideoUrl}" type="${videoFileInput.files[0].type}">
+                Your browser does not support the video tag.
+            </video>`;
+    } else if (videoUrlInput) {
+        // Fallback to text link if they pasted a link instead
+        specificContentHTML = `<div class="p-3.5 rounded-xl bg-purple-50 text-xs font-medium text-purple-700 truncate border border-purple-100">🎞️ Attachment Link: <a href="${videoUrlInput}" target="_blank" class="underline font-bold">${videoUrlInput}</a></div>`;
+    } else {
+        specificContentHTML = `<div class="p-3.5 rounded-xl bg-gray-50 text-xs font-medium text-gray-500 truncate border border-gray-200">🎥 Empty Video Post Placeholder</div>`;
+    }
+} else if(type === 'poll') {
+        const opt1 = document.getElementById('poll-opt-1').value || 'Choice A';
+        const opt2 = document.getElementById('poll-opt-2').value || 'Choice B';
+        specificContentHTML = `
+            <div class="space-y-2 max-w-md">
+                <div class="w-full p-2.5 border border-gray-200 rounded-xl text-xs font-semibold text-gray-700 flex justify-between bg-[#FAFAFA] hover:bg-gray-50 cursor-pointer"><span>${opt1}</span><span class="text-gray-400">0%</span></div>
+                <div class="w-full p-2.5 border border-gray-200 rounded-xl text-xs font-semibold text-gray-700 flex justify-between bg-[#FAFAFA] hover:bg-gray-50 cursor-pointer"><span>${opt2}</span><span class="text-gray-400">0%</span></div>
+            </div>`;
+    } else if(type === 'link') {
+        const url = document.getElementById('post-link-url').value || '#';
+        specificContentHTML = `<a href="${url}" target="_blank" class="text-sm font-semibold text-[#8B2CF5] hover:underline flex items-center gap-1">Visit Shared Resource ↗</a>`;
+    }
+
+    // Assemble final modular presentation block framework
+    postCard.innerHTML = `
+        <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 text-[11px] font-bold tracking-wide rounded-md bg-purple-100 text-[#8B2CF5] uppercase">${badges[type]}</span>
+            <span class="text-[11px] text-gray-400 font-medium">Just now</span>
+        </div>
+        <h4 class="text-lg font-extrabold text-[#111111] tracking-tight">${title}</h4>
+        ${specificContentHTML}
+    `;
+
+    // Prepend item element seamlessly right onto page body feed stack
+    postsContainer.insertBefore(postCard, postsContainer.firstChild);
+
+    // Terminate window sequence container view overlay loops
+    closePostModal();
+}
+function updateFileLabel(input) {
+    const label = document.getElementById('file-upload-label');
+    if (input.files && input.files[0]) {
+        label.innerText = `Selected: ${input.files[0].name}`;
+        label.classList.remove('text-gray-500');
+        label.classList.add('text-[#8B2CF5]');
+    } else {
+        label.innerText = "Click to browse or drop your image here";
+        label.classList.remove('text-[#8B2CF5]');
+        label.classList.add('text-gray-500');
+    }
+}
+function updateVideoLabel(input) {
+    const label = document.getElementById('video-upload-label');
+    if (input.files && input.files[0]) {
+        label.innerText = `Selected: ${input.files[0].name}`;
+        label.classList.remove('text-gray-500');
+        label.classList.add('text-[#8B2CF5]');
+    } else {
+        label.innerText = "Click to browse or drop your video here";
+        label.classList.remove('text-[#8B2CF5]');
+        label.classList.add('text-gray-500');
+    }
+}
+// ================= REAL-TIME SEARCH ENGINE =================
+const searchInput = document.getElementById('search-input');
+
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    
+    // Grab all current post cards (excluding the empty state element if it's visible)
+    const cards = postsContainer.querySelectorAll('.animate-fade-in');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        // Collect text tracks inside the card to run a match scan
+        const titleText = card.querySelector('h4') ? card.querySelector('h4').innerText.toLowerCase() : '';
+        const bodyParagraph = card.querySelector('p') ? card.querySelector('p').innerText.toLowerCase() : '';
+        const badgeText = card.querySelector('span') ? card.querySelector('span').innerText.toLowerCase() : '';
+        
+        // Combine text for all-around query matching
+        if (titleText.includes(query) || bodyParagraph.includes(query) || badgeText.includes(query)) {
+            card.style.display = 'flex'; // Keep card visible
+            visibleCount++;
+        } else {
+            card.style.display = 'none'; // Hide matching card element frame
+        }
+    });
+
+    // Optional: Dynamic Search Fallback Alert Handler
+    let searchFallback = document.getElementById('search-fallback-msg');
+    
+    if (visibleCount === 0 && cards.length > 0) {
+        if (!searchFallback) {
+            searchFallback = document.createElement('div');
+            searchFallback.id = 'search-fallback-msg';
+            searchFallback.className = "w-full border border-dashed border-gray-200 rounded-2xl p-8 flex items-center justify-center bg-gray-50/50 text-center";
+            searchFallback.innerHTML = `<p class="text-xs font-semibold text-gray-400">No matching search posts found for "${searchInput.value}"</p>`;
+            postsContainer.appendChild(searchFallback);
+        }
+    } else {
+        if (searchFallback) {
+            searchFallback.remove();
+        }
+    }
+});
+</script>
+</body>
+</html>
