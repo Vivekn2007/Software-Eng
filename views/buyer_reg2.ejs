@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manch — Choose Your Interests</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+
+    .premium-smooth-node {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .topic-card {
+      transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    .topic-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px -12px rgba(17,17,17,0.10);
+    }
+    .topic-card:focus-visible {
+      outline: 2px solid #7C3AED;
+      outline-offset: 2px;
+    }
+    .topic-card.selected {
+      border-color: #7C3AED;
+      background: linear-gradient(180deg, rgba(124,58,237,0.06), rgba(236,72,153,0.04));
+      box-shadow: 0 0 0 1px rgba(124,58,237,0.25), 0 10px 22px -14px rgba(124,58,237,0.35);
+    }
+
+    .check-badge {
+      transform: scale(0);
+      transition: transform .2s cubic-bezier(.34,1.56,.64,1);
+    }
+    .topic-card.selected .check-badge {
+      transform: scale(1);
+    }
+
+    .progress-fill {
+      transition: width .45s cubic-bezier(.34,1.2,.64,1);
+    }
+
+    .tag-pill {
+      animation: fadeIn .25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #continueBtn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .creator-card {
+      transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    .creator-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -12px rgba(17,17,17,0.08);
+    }
+
+    .follow-mini {
+      transition: all .15s ease;
+    }
+    .follow-mini.is-following {
+      background: linear-gradient(to right, #7C3AED, #EC4899);
+      color: #fff;
+      border-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-[#FAFAFB] min-h-screen flex flex-col justify-between antialiased relative overflow-x-hidden text-[#111111]">
+
+  <div class="absolute top-[-10%] right-[8%] w-[420px] h-[420px] rounded-full bg-gradient-to-tr from-[#7C3AED]/10 to-[#EC4899]/5 blur-[100px] pointer-events-none -z-10"></div>
+  <div class="absolute bottom-[5%] left-[-10%] w-[420px] h-[420px] rounded-full bg-gradient-to-br from-[#EC4899]/10 to-[#7C3AED]/5 blur-[90px] pointer-events-none -z-10"></div>
+
+  <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 pt-4 lg:pt-6 gap-10 lg:gap-14 items-start relative z-10">
+    
+    <div class="lg:col-span-6 self-start sticky top-4 flex flex-col pt-0 pb-4 space-y-6 lg:-mt-4 relative rounded-3xl overflow-hidden px-6 sm:px-10 bg-transparent">
+      
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-white to-pink-50/30 -z-10"></div>
+      <div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#7C3AED]/10 to-[#EC4899]/5 blur-[100px] pointer-events-none -z-10"></div>
+      <div class="absolute bottom-[-10%] left-[-20%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-[#EC4899]/10 to-[#7C3AED]/5 blur-[90px] pointer-events-none -z-10"></div>
+      
+      <div class="absolute top-10 right-12 opacity-35 pointer-events-none -z-10 hidden sm:block">
+        <svg width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="2" fill="#7C3AED"/> <circle cx="30" cy="10" r="2" fill="#7C3AED"/> <circle cx="50" cy="10" r="2" fill="#7C3AED"/> <circle cx="70" cy="10" r="2" fill="#7C3AED"/> <circle cx="90" cy="10" r="2" fill="#7C3AED"/>
+          <circle cx="10" cy="30" r="2" fill="#7C3AED"/> <circle cx="30" cy="30" r="2" fill="#7C3AED"/> <circle cx="50" cy="30" r="2" fill="#7C3AED"/> <circle cx="70" cy="30" r="2" fill="#7C3AED"/> <circle cx="90" cy="30" r="2" fill="#7C3AED"/>
+          <circle cx="10" cy="50" r="2" fill="#EC4899"/> <circle cx="30" cy="50" r="2" fill="#EC4899"/> <circle cx="50" cy="50" r="2" fill="#EC4899"/> <circle cx="70" cy="50" r="2" fill="#EC4899"/> <circle cx="90" cy="50" r="2" fill="#EC4899"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 flex items-center gap-2.5 pt-4 mb-6 lg:mb-0">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] flex items-center justify-center text-white font-extrabold text-base shadow-sm">M</div>
+        <span class="text-[#111111] font-bold text-xl tracking-tight">Manch</span>
+      </div>
+
+      <div class="relative z-10 mt-4 lg:mt-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7C3AED]/5 border border-[#7C3AED]/10 text-[11px] font-bold text-[#7C3AED] mb-5 tracking-wide">
+          <span class="text-[#7C3AED]">✦</span> Tailored For You
+        </div>
+        
+        <h1 class="text-4xl sm:text-[46px] font-extrabold leading-[1.1] tracking-tight text-[#111111] mb-5">
+          Tell us what<br />
+          you're <span class="italic bg-gradient-to-r from-[#7C3AED] to-[#EC4899] bg-clip-text text-transparent relative">into.<span class="absolute bottom-1 left-0 w-full h-[4px] bg-[#EC4899]/20 rounded-full"></span></span>
+        </h1>
+        <p class="text-[15px] text-gray-500 leading-relaxed mb-7 font-medium max-w-sm">
+          Personalize your feed and discover creators you'll actually love.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-7">
+          <div class="space-y-1.5">
+            <div class="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-sm shadow-xs">✨</div>
+            <h4 class="text-[13px] font-bold text-[#111111]">Better recommendations</h4>
+            <p class="text-[11px] text-gray-400 font-medium leading-relaxed pr-2">Get content that matches your interests.</p>
+          </div>
+          <div class="space-y-1.5">
+            <div class="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-sm shadow-xs">🎯</div>
+            <h4 class="text-[13px] font-bold text-[#111111]">Discover creators</h4>
+            <p class="text-[11px] text-gray-400 font-medium leading-relaxed pr-2">We'll show you creators you'll love.</p>
+          </div>
+          <div class="space-y-1.5">
+            <div class="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-sm shadow-xs">📦</div>
+            <h4 class="text-[13px] font-bold text-[#111111]">Curated products</h4>
+            <p class="text-[11px] text-gray-400 font-medium leading-relaxed pr-2">Find digital products you'll actually use.</p>
+          </div>
+          <div class="space-y-1.5">
+            <div class="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-sm shadow-xs">📖</div>
+            <h4 class="text-[13px] font-bold text-[#111111]">Personalized learning</h4>
+            <p class="text-[11px] text-gray-400 font-medium leading-relaxed pr-2">A learning experience built just for you.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-100 rounded-[22px] p-6 shadow-xs flex flex-col justify-between w-full mb-2">
+          <p class="text-[13px] leading-relaxed text-gray-500 font-medium mb-5">
+            "The customized recommendations helped me find the perfect UI/UX resources instantly. 
+            It saved me hours of searching across different sites."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#7C3AED]/8 flex items-center justify-center text-[#7C3AED] text-xs font-bold font-mono">PK</div>
+            <div>
+              <h5 class="text-[13px] font-bold text-[#111111] leading-none mb-1">Priya K.</h5>
+              <div class="flex items-center gap-1.5">
+                <span class="text-amber-500 text-[10px] tracking-tighter">★★★★★</span>
+                <span class="text-[10px] font-bold text-gray-400">UI/UX Learner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="lg:col-span-6 flex w-full lg:pt-1 h-full">
+      <div class="premium-smooth-node w-full bg-white border border-gray-100 rounded-[28px] shadow-xl shadow-gray-200/20 p-7 sm:p-9 flex flex-col max-w-[600px]">
+        
+        <div class="w-full h-1.5 rounded-full bg-gray-100 overflow-hidden mb-7">
+          <div id="progressFill" class="progress-fill h-full rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899]" style="width: 0%;"></div>
+        </div>
+
+        <div class="mb-6">
+          <h2 class="text-3xl font-bold text-[#111111] tracking-tight mb-1.5">Choose Your Interests</h2>
+          <p id="interestSubtext" class="text-[13px] font-medium text-gray-400">Select at least 3 topics to personalize your experience.</p>
+        </div>
+
+        <div id="topicGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-7"></div>
+
+        <div class="mb-7">
+          <h4 class="text-xs font-bold text-[#111111] mb-3">Recommended For You</h4>
+          <div id="recommendedTags" class="flex flex-wrap gap-2 min-h-[40px]"></div>
+        </div>
+
+        <button id="continueBtn" disabled class="w-full bg-[#0F1115] hover:bg-[#1C1E24] active:scale-[0.99] text-white font-bold text-sm py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer shadow-md shadow-gray-900/10 mt-2">
+          <span id="continueText">Continue to Dashboard</span>
+          <span id="continueArrow" class="text-lg leading-none">→</span>
+          <svg id="continueSpinner" class="hidden w-4 h-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 mt-10 pb-10 relative z-10">
+    <div class="bg-white border border-gray-100 rounded-[28px] shadow-xs p-7 sm:p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-base font-bold text-[#111111]">Featured Creators on Manch</h3>
+        <a href="#" class="text-xs font-bold text-[#7C3AED] hover:underline flex items-center gap-1">Explore all creators <span class="text-[10px]">›</span></a>
+      </div>
+      <div id="creatorRow" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+    </div>
+  </div>
+    <div class="flex flex-col items-center gap-6 pt-4 w-full">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-x-14 gap-y-5 text-gray-600 text-[13px] w-full max-w-5xl mx-auto">
+        
+        <div class="flex items-center gap-3.5">
+          <svg class="w-[18px] h-[18px] text-gray-400/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <div class="flex flex-col items-start leading-tight">
+            <span class="font-bold text-[#111111] text-[13.5px]">Encrypted Rail</span>
+            <span class="text-gray-400 text-[11.5px] mt-0.5">Secure SSL ledger integrations</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5">
+          <svg class="w-[18px] h-[18px] text-gray-400/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          <div class="flex flex-col items-start leading-tight">
+            <span class="font-bold text-[#111111] text-[13.5px]">IP Protection</span>
+            <span class="text-gray-400 text-[11.5px] mt-0.5">Your digital assets stay yours</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5">
+          <svg class="w-[18px] h-[18px] text-gray-400/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <div class="flex flex-col items-start leading-tight">
+            <span class="font-bold text-[#111111] text-[13.5px]">Verified Space</span>
+            <span class="text-gray-400 text-[11.5px] mt-0.5">Built for independent founders</span>
+          </div>
+        </div>
+
+      </div>
+      
+      <p class="text-center text-[11px] font-medium text-gray-400/90 tracking-wide mt-1">© 2026 Manch. All rights reserved.</p>
+    </div>
+  </div>
+  <script>
+    const interests = [
+      { id: "design", label: "Design", icon: "🎨", tags: ["UI/UX Design", "Graphic Design"] },
+      { id: "programming", label: "Programming", icon: "💻", tags: ["Web Development", "App Development"] },
+      { id: "marketing", label: "Marketing", icon: "📈", tags: ["Digital Marketing", "Brand Strategy"] },
+      { id: "video", label: "Video Editing", icon: "🎬", tags: ["Video Production", "Motion Graphics"] },
+      { id: "productivity", label: "Productivity", icon: "📚", tags: ["Time Management", "Workflow Systems"] },
+      { id: "fitness", label: "Fitness", icon: "🏋", tags: ["Home Workouts", "Strength Training"] },
+      { id: "photography", label: "Photography", icon: "📷", tags: ["Photo Editing", "Portrait Photography"] },
+      { id: "music", label: "Music", icon: "🎵", tags: ["Music Production", "Sound Design"] },
+      { id: "writing", label: "Writing", icon: "✍️", tags: ["Content Writing", "Copywriting"] },
+      { id: "ai", label: "AI", icon: "🤖", tags: ["AI Tools", "Prompt Engineering"] },
+      { id: "finance", label: "Finance", icon: "💰", tags: ["Personal Finance", "Investing Basics"] },
+      { id: "self-growth", label: "Self Growth", icon: "🧠", tags: ["Mindset & Habits", "Goal Setting"] },
+    ];
+
+    const defaultTags = ["UI/UX Design", "Web Development", "AI Tools"];
+    const MIN_SELECT = 3;
+    let selected = new Set();
+
+    const topicGrid = document.getElementById("topicGrid");
+    const recommendedTags = document.getElementById("recommendedTags");
+    const progressFill = document.getElementById("progressFill");
+    const interestSubtext = document.getElementById("interestSubtext");
+    const continueBtn = document.getElementById("continueBtn");
+
+    interests.forEach(t => {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.dataset.id = t.id;
+      card.className = "topic-card relative flex flex-col items-center justify-center gap-2.5 bg-white border border-gray-200 rounded-2xl py-5 px-2";
+      card.innerHTML = `
+        <span class="check-badge absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[#7C3AED] text-white flex items-center justify-center text-[10px] font-bold shadow-sm">✓</span>
+        <span class="text-2xl leading-none">${t.icon}</span>
+        <span class="text-[12px] font-bold text-[#111111] leading-none">${t.label}</span>
+      `;
+      card.addEventListener("click", () => toggleTopic(t.id, card));
+      topicGrid.appendChild(card);
+    });
+
+    function toggleTopic(id, card) {
+      if (selected.has(id)) {
+        selected.delete(id);
+        card.classList.remove("selected");
+      } else {
+        selected.add(id);
+        card.classList.add("selected");
+      }
+      updateProgress();
+      updateRecommended();
+    }
+
+    function updateProgress() {
+      const pct = Math.min(Math.round((selected.size / MIN_SELECT) * 100), 100);
+      progressFill.style.width = pct + "%";
+ 
+
+      if (selected.size === 0) {
+        interestSubtext.innerHTML = "Select at least 3 topics to personalize your experience.";
+        interestSubtext.classList.remove("text-[#16A34A]");
+        interestSubtext.classList.add("text-gray-400");
+      } else if (selected.size < MIN_SELECT) {
+        interestSubtext.innerHTML = `${selected.size} of ${MIN_SELECT} selected — pick ${MIN_SELECT - selected.size} more.`;
+        interestSubtext.classList.remove("text-[#16A34A]");
+        interestSubtext.classList.add("text-gray-400");
+      } else {
+        interestSubtext.innerHTML = `✓ Great picks! Add more anytime, or continue.`;
+        interestSubtext.classList.add("text-[#16A34A]");
+        interestSubtext.classList.remove("text-gray-400");
+      }
+
+      continueBtn.disabled = selected.size < MIN_SELECT;
+    }
+
+    function updateRecommended() {
+      let tags = [];
+      selected.forEach(id => {
+        const t = interests.find(i => i.id === id);
+        if (t) tags.push(...t.tags);
+      });
+      tags = [...new Set(tags)];
+      if (tags.length === 0) tags = defaultTags;
+      tags = tags.slice(0, 6);
+
+      const icons = ["🎨", "💻", "🤖", "📈", "✍️", "📷"];
+      recommendedTags.innerHTML = tags.map((tag, i) => `
+        <span class="tag-pill flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#7C3AED]/5 border border-[#7C3AED]/10 text-[12px] font-bold text-[#7C3AED]">
+          <span>${icons[i % icons.length]}</span> ${tag}
+        </span>
+      `).join("");
+    }
+
+    updateProgress();
+    updateRecommended();
+
+    continueBtn.addEventListener("click", () => {
+      if (continueBtn.disabled) return;
+      const continueText = document.getElementById("continueText");
+      const continueArrow = document.getElementById("continueArrow");
+      const continueSpinner = document.getElementById("continueSpinner");
+
+      continueBtn.disabled = true;
+      continueText.textContent = "Setting up your feed...";
+      continueArrow.classList.add("hidden");
+      continueSpinner.classList.remove("hidden");
+
+      setTimeout(() => {
+        window.location.href = "buyer_dashboard.html";
+      }, 1200);
+    });
+
+    // Featured creators
+    const creators = [
+      { initials: "MI", name: "Meera Iyer", role: "UI/UX Mentor", followers: "24K Followers", stat: "120 Products", color: "#7C3AED", bg: "rgba(124,58,237,0.08)" },
+      { initials: "RS", name: "Rohan Shah", role: "Java & DSA Educator", followers: "35K Followers", stat: "80 Courses", color: "#0EA5E9", bg: "rgba(14,165,233,0.08)" },
+      { initials: "AV", name: "Ananya Verma", role: "Content Creator", followers: "50K Followers", stat: "140 Resources", color: "#EC4899", bg: "rgba(236,72,153,0.08)" },
+    ];
+
+    const creatorRow = document.getElementById("creatorRow");
+    creatorRow.innerHTML = creators.map(c => `
+      <div class="creator-card premium-smooth-node bg-white border border-gray-100 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold font-mono shrink-0" style="background:${c.bg}; color:${c.color};">${c.initials}</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-1.5">
+            <h5 class="text-sm font-bold text-[#111111] truncate">${c.name}</h5>
+            <span class="w-4 h-4 rounded-full bg-[#0EA5E9] text-white flex items-center justify-center text-[9px] shrink-0">✓</span>
+          </div>
+          <p class="text-[12px] text-gray-400 font-bold mb-1">${c.role}</p>
+          <div class="flex items-center gap-1 text-[11px] font-bold text-gray-400">
+            <span class="text-amber-500">★★★★★</span>
+          </div>
+          <p class="text-[11px] text-gray-400 font-medium mt-0.5">${c.followers} • ${c.stat}</p>
+        </div>
+        <button data-name="${c.name}" class="follow-mini shrink-0 px-3.5 py-2 rounded-lg text-[11px] font-bold border border-gray-200 text-[#111111] bg-white hover:bg-gray-50">+ Follow</button>
+      </div>
+    `).join("");
+
+    creatorRow.querySelectorAll(".follow-mini").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const following = btn.classList.toggle("is-following");
+        btn.textContent = following ? "✓ Following" : "+ Follow";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manch — Build Your Brand Identity</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    .handwriting { font-family: 'Caveat', cursive; }
+
+    .field-input:focus, .field-control:focus-within {
+      outline: none;
+      border-color: #7C3AED;
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.05);
+    }
+
+    .lang-chip-input:checked + .lang-chip-label {
+      background-color: #EFEAFD;
+      border-color: #7C3AED;
+      color: #5B21B6;
+    }
+    .lang-chip-input:checked + .lang-chip-label .lang-check {
+      display: inline-flex;
+    }
+
+    .upload-zone:hover { background-color: rgba(124, 58, 237, 0.03); }
+
+    /* Permanent rasterization fix layer matrix */
+    .premium-smooth-node {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
+    }
+
+    ::placeholder { color: #9CA3AF; }
+  </style>
+</head>
+
+<body class="bg-[#FAFAFB] min-h-screen flex flex-col justify-between antialiased relative overflow-x-hidden">
+
+  <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:pl-4 lg:pr-16 pt-4 lg:pt-6 gap-10 lg:gap-14 items-start relative z-10">
+    <div class="lg:col-span-5 flex flex-col justify-between h-full pt-1 pb-4 space-y-6 relative rounded-3xl overflow-hidden px-6 sm:px-12 lg:-ml-6 lg:-mt-4 bg-transparent">
+      
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-white to-pink-50/30 -z-10"></div>
+      <div class="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#7C3AED]/10 to-[#EC4899]/5 blur-[100px] pointer-events-none -z-10"></div>
+      <div class="absolute bottom-[-10%] left-[-20%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-[#EC4899]/10 to-[#7C3AED]/5 blur-[90px] pointer-events-none -z-10"></div>
+      
+      <div class="absolute top-10 right-12 opacity-35 pointer-events-none -z-10 hidden sm:block">
+        <svg width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="2" fill="#7C3AED"/> <circle cx="30" cy="10" r="2" fill="#7C3AED"/> <circle cx="50" cy="10" r="2" fill="#7C3AED"/> <circle cx="70" cy="10" r="2" fill="#7C3AED"/> <circle cx="90" cy="10" r="2" fill="#7C3AED"/>
+          <circle cx="10" cy="30" r="2" fill="#7C3AED"/> <circle cx="30" cy="30" r="2" fill="#7C3AED"/> <circle cx="50" cy="30" r="2" fill="#7C3AED"/> <circle cx="70" cy="30" r="2" fill="#7C3AED"/> <circle cx="90" cy="30" r="2" fill="#7C3AED"/>
+          <circle cx="10" cy="50" r="2" fill="#EC4899"/> <circle cx="30" cy="50" r="2" fill="#EC4899"/> <circle cx="50" cy="50" r="2" fill="#EC4899"/> <circle cx="70" cy="50" r="2" fill="#EC4899"/> <circle cx="90" cy="50" r="2" fill="#EC4899"/>
+        </svg>
+      </div>
+
+      <div class="relative z-10 flex flex-col items-start">
+        <div class="flex items-center gap-2.5 pt-4 mb-4 lg:mb-0">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] flex items-center justify-center text-white font-extrabold text-base shadow-sm">M</div>
+          <span class="text-[#111111] font-bold text-xl tracking-tight">Manch</span>
+        </div>
+      </div>
+      <div class="relative z-10 mt-1 flex-1 flex flex-col justify-start">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7C3AED]/5 border border-[#7C3AED]/10 text-[11px] font-bold text-[#7C3AED] mb-4 tracking-wide">
+            <span class="text-xs">•</span> Built entirely for independent digital creators
+          </div>
+          
+          <h1 class="text-5xl font-extrabold leading-[1.15] tracking-tight text-[#111111] mb-3">
+            Your brand.<br />
+            Your space.<br />
+            Your <span class="bg-gradient-to-r from-[#7C3AED] to-[#EC4899] bg-clip-text text-transparent relative">identity.<span class="absolute bottom-1 left-0 w-full h-[4px] bg-[#EC4899]/20 rounded-full"></span></span>
+          </h1>
+          <p class="text-[15px] text-gray-500 leading-relaxed font-medium mb-4">
+            Let's build your identity so your audience remembers you.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-8 items-start justify-between w-full max-w-[600px] mx-auto pt-2 pb-4">
+          
+          <div class="relative pl-1 space-y-5 shrink-0 w-full sm:w-[210px] self-center">
+            <div class="absolute left-[15px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#7C3AED] via-[#7C3AED] to-gray-200 z-0"></div>
+
+            <div class="flex items-start gap-3.5 relative z-10">
+              <div class="w-8 h-8 rounded-full bg-[#7C3AED] flex items-center justify-center shrink-0 shadow-sm">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <div class="pt-0.5">
+                <h4 class="text-xs font-bold text-[#111111]">Account Created</h4>
+                <p class="text-[10px] text-gray-400 font-medium mt-0.5">Your account is ready to go</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 relative z-10">
+              <div class="w-8 h-8 rounded-full bg-[#7C3AED] flex items-center justify-center shrink-0 shadow-sm">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <div class="pt-0.5">
+                <h4 class="text-xs font-bold text-[#111111]">Creator Profile Selected</h4>
+                <p class="text-[10px] text-gray-400 font-medium mt-0.5">You've chosen your creator type</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 relative z-10">
+              <div class="w-8 h-8 rounded-full bg-white border-[3px] border-[#7C3AED] flex items-center justify-center shrink-0 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-[#7C3AED]"></span>
+              </div>
+              <div class="pt-0.5">
+                <h4 class="text-xs font-bold text-[#111111]">Brand Identity</h4>
+                <p class="text-[10px] text-gray-400 font-medium mt-0.5">Let's build your creator identity</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 relative z-10 opacity-50">
+              <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center shrink-0"></div>
+              <div class="pt-0.5">
+                <h4 class="text-xs font-bold text-gray-500">Launch</h4>
+                <p class="text-[10px] text-gray-400 font-medium mt-0.5">Go live and start inspiring</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-1 w-full sm:max-w-[320px]">
+            <div class="premium-smooth-node bg-white rounded-[28px] shadow-2xl shadow-purple-200/30 border border-gray-100/80 p-7 relative">
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FCE7F3] text-[#DB2777] text-[10px] font-bold whitespace-nowrap shadow-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#DB2777]"></span> Live Preview
+              </span>
+
+              <div class="flex flex-col items-center text-center pt-3">
+                <img id="previewAvatarImg" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D1D5DB'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" alt="Profile preview" class="w-24 h-24 rounded-full object-cover border-2 border-white bg-gray-100 shadow-md mb-4" />
+                
+                <h3 id="previewName" class="text-lg font-extrabold text-[#111111] leading-tight w-full break-all text-center">Your Store Name</h3>
+                <p id="previewIdentity" class="text-sm font-bold text-[#7C3AED] mt-1.5 tracking-tight w-full break-all text-center">Your Creator Identity</p>
+                
+                <p id="previewBio" class="text-xs text-gray-400 font-medium leading-relaxed mt-3.5 px-2 w-full break-all text-center">
+                  Your bio will appear here.
+                </p> 
+                <div class="grid grid-cols-2 gap-4 w-full mt-5 pt-5 border-t border-gray-100">
+                  <div>
+                    <span id="previewProductCount" class="block text-base font-extrabold text-[#111111]">0</span>
+                    <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-0.5">Products</span>
+                  </div>
+                  <div>
+                    <span id="previewFollowerCount" class="block text-base font-extrabold text-[#111111]">0</span>
+                    <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wide mt-0.5">Followers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="handwriting text-[#DB2777] text-xl mt-4 ml-4 leading-tight flex flex-col items-start">
+              <svg class="w-6 h-6 ml-4 mb-1" fill="none" stroke="#DB2777" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-5 5m5-5l5 5"/></svg>
+              <div>This is how your storefront will look!</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="h-4"></div>
+    </div>
+
+    <div class="lg:col-span-7 flex items-center justify-center w-full lg:-mt-0">
+      <div class="premium-smooth-node w-full bg-white border border-gray-100 rounded-3xl shadow-xl shadow-gray-200/20 px-8 py-10 sm:px-10 sm:py-12">
+        
+        <div class="space-y-2 mb-8">
+  <div class="flex items-center justify-between">
+    <a href="creator_register2.html" class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors shrink-0">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </a>
+    <span class="text-[11px] font-extrabold text-[#7C3AED] uppercase tracking-[0.15em] block font-mono">Step 3 of 4</span>
+  </div>
+  
+  <h2 class="text-3xl font-bold text-[#111111] tracking-tight mt-2">Setup Your Identity</h2>
+  <p class="text-sm font-medium text-gray-400">Let's configure your digital storefront link and visual brand identity.</p>
+          <div class="flex items-center justify-between relative pt-6 max-w-xl mx-auto">
+            <div class="absolute h-0.5 left-6 right-6 top-[35px] bg-gray-100 z-0"></div>
+            
+            <div class="relative z-10 flex flex-col items-center gap-1.5">
+              <div class="w-6 h-6 rounded-full bg-[#7C3AED] text-white font-bold text-[10px] flex items-center justify-center shadow-xs">✓</div>
+              <span class="text-[10px] font-bold text-[#7C3AED]">Account</span>
+            </div>
+            <div class="relative z-10 flex flex-col items-center gap-1.5">
+              <div class="w-6 h-6 rounded-full bg-[#7C3AED] text-white font-bold text-[10px] flex items-center justify-center shadow-xs">✓</div>
+              <span class="text-[10px] font-bold text-[#7C3AED]">Profile</span>
+            </div>
+            <div class="relative z-10 flex flex-col items-center gap-1.5">
+              <div class="w-6 h-6 rounded-full bg-[#7C3AED] text-white font-bold text-[10px] flex items-center justify-center shadow-xs">3</div>
+              <span class="text-[10px] font-bold text-[#7C3AED]">Setup</span>
+            </div>
+            <div class="relative z-10 flex flex-col items-center gap-1.5">
+              <div class="w-6 h-6 rounded-full bg-gray-50 text-gray-400 font-bold text-[10px] flex items-center justify-center border border-gray-200">4</div>
+              <span class="text-[10px] font-medium text-gray-400">Launch</span>
+            </div>
+          </div>
+        </div>
+
+        <form action="/creator/signup/page3" method="post" id="identityForm" novalidate class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="creatorName" class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Creator Name <span class="text-red-500">*</span></label>
+              <input type="text" id="creatorName" name="fullName" value="<%= name %>" required placeholder="This will be your display name on Manch" class="field-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-[#111111] bg-white transition-all font-medium" />
+            </div>
+
+            <div>
+              <label for="username" class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Username <span class="text-red-500">*</span></label>
+              <div class="field-control flex items-center border border-gray-200 rounded-xl bg-white overflow-hidden transition-all">
+                <span class="flex items-center justify-center pl-4 pr-1 h-[46px] bg-white text-gray-600 font-bold text-sm shrink-0 select-none">manch.in/@</span>
+                <input type="text" id="username" required placeholder="username" name="userName" class="flex-1 py-3 pr-3 text-sm text-[#111111] bg-transparent outline-none font-medium min-w-0" />
+                <span id="usernameStatus" class="hidden sm:flex items-center gap-1 pr-3.5 text-[11px] font-bold text-green-600 whitespace-nowrap shrink-0">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  Available
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="creatorIdentity" class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Creator Identity <span class="text-red-500">*</span></label>
+              <input type="text" id="creatorIdentity" name="identity" required placeholder="Let your audience know what you do" class="field-input w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-[#111111] bg-white transition-all font-medium" />
+              <div class="mt-2.5">
+                <span class="text-[10px] font-bold text-gray-400 block mb-1.5 uppercase tracking-wide">Examples:</span>
+                <!-- FIXED: Wrapped chips container in a unique ID slot to build dynamic injection layouts -->
+                <div id="identitySuggestions" class="flex flex-wrap gap-1.5">
+                  <!-- Generated Dynamically by JS -->
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="creatorBio" class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Creator Bio <span class="text-red-500">*</span></label>
+              <div class="relative">
+                <textarea id="creatorBio" required maxlength="150" name="bio" rows="3" placeholder="Tell your audience about yourself" class="field-input w-full px-4 py-3 pb-6 border border-gray-200 rounded-xl text-sm text-[#111111] bg-white transition-all font-medium resize-none"></textarea>
+                <span id="bioCounter" class="absolute bottom-2.5 right-3.5 text-[10px] text-gray-400 font-medium bg-white">0 / 150</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">Languages <span class="text-red-500">*</span></label>
+            <p class="text-[11px] text-gray-400 font-medium mb-3">Choose the languages you create content in.</p>
+            <div class="flex flex-wrap gap-2.5" id="languageGroup">
+              <input type="checkbox" id="langEnglish" checked class="hidden lang-chip-input peer" />
+              <label for="langEnglish" class="lang-chip-label flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-[13px] font-bold text-gray-600 cursor-pointer transition-colors">
+                <svg class="lang-check w-3.5 h-3.5 hidden" fill="none" stroke="#5B21B6" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                English
+              </label>
+
+              <input type="checkbox" id="langHindi" checked class="hidden lang-chip-input peer" />
+              <label for="langHindi" class="lang-chip-label flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-[13px] font-bold text-gray-600 cursor-pointer transition-colors">
+                <svg class="lang-check w-3.5 h-3.5 hidden" fill="none" stroke="#5B21B6" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                हिंदी (Hindi)
+              </label>
+
+              <input type="checkbox" id="langTamil" class="hidden lang-chip-input peer" />
+              <label for="langTamil" class="lang-chip-label flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-[13px] font-bold text-gray-600 cursor-pointer transition-colors">
+                <svg class="lang-check w-3.5 h-3.5 hidden" fill="none" stroke="#5B21B6" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                தமிழ் (Tamil)
+              </label>
+
+              <input type="checkbox" id="langTelugu" class="hidden lang-chip-input peer" />
+              <label for="langTelugu" class="lang-chip-label flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-[13px] font-bold text-gray-600 cursor-pointer transition-colors">
+                <svg class="lang-check w-3.5 h-3.5 hidden" fill="none" stroke="#5B21B6" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                తెలుగు (Telugu)
+              </label>
+
+              <input type="checkbox" id="langBengali" class="hidden lang-chip-input peer" />
+              <label for="langBengali" class="lang-chip-label flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-[13px] font-bold text-gray-600 cursor-pointer transition-colors">
+                <svg class="lang-check w-3.5 h-3.5 hidden" fill="none" stroke="#5B21B6" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                বাংলা (Bengali)
+              </label>
+
+              <div id="addLanguageWrapper" class="inline-flex items-center">
+                <button type="button" id="addLanguageBtn" class="flex items-center gap-1.5 px-4 py-2 rounded-full border border-dashed border-[#7C3AED]/50 text-[13px] font-bold text-[#7C3AED] hover:bg-[#7C3AED]/5 transition-colors cursor-pointer">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14"/></svg>
+                  Add More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">Profile Photo <span class="text-red-500">*</span></label>
+            <p class="text-[11px] text-gray-400 font-medium mb-3">Upload a photo that represents you or your brand storefront layout.</p>
+            <div class="flex items-center gap-5">
+              <label for="photoUpload" class="upload-zone flex flex-col items-center justify-center gap-1.5 border-2 border-dashed border-[#7C3AED]/30 rounded-2xl px-6 py-5 bg-white transition-colors cursor-pointer w-52 text-center shrink-0">
+                <svg class="w-6 h-6 text-[#7C3AED] mb-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M12 12v9m0-9l-3 3m3-3l3 3"/></svg>
+                <span class="text-xs font-bold text-[#7C3AED]">Upload Photo</span>
+                <span class="text-[10px] text-gray-400 font-medium leading-snug">JPG, PNG or WEBP.<br/>Max size 5MB.</span>
+                <input type="file" required id="photoUpload" accept="image/png, image/jpeg, image/webp" class="hidden" />
+              </label>
+
+              <div class="relative shrink-0">
+                <img id="photoPreviewImg" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D1D5DB'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" alt="Your photo" class="w-24 h-24 rounded-full object-cover border-2 border-white bg-gray-100 shadow-md" />
+                <label for="photoUpload" class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#7C3AED] shadow-xs cursor-pointer hover:bg-gray-50">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" id="submitBtn" class="w-full bg-[#0F1115] hover:bg-[#1C1E24] active:scale-[0.99] text-white font-bold text-sm py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer">
+              <span id="submitText">Create My Storefront</span>
+              <svg id="submitArrow" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              <svg id="submitSpinner" class="hidden w-4 h-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </button>
+            
+            <div class="text-center text-[11px] font-semibold text-gray-400 flex items-center justify-center gap-1.5 mt-3">
+              <span>🛡️</span> Your information is secure and never shared.
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 mt-14 pb-8 flex flex-col gap-10 relative z-10">
+    <div class="flex flex-col items-center gap-6 pt-4 w-full">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-x-14 gap-y-5 text-gray-600 text-[13px] w-full max-w-5xl mx-auto">
+        <div class="flex items-center gap-3.5">
+          <svg class="w-[18px] h-[18px] text-gray-400/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <div class="flex flex-col items-start leading-tight">
+            <span class="font-bold text-[#111111] text-[13.5px]">Encrypted Rail</span>
+            <span class="text-gray-400 text-[11.5px] mt-0.5">Secure SSL ledger integrations</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3.5">
+          <svg class="w-[18px] h-[18px] text-gray-400/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          <div class="flex flex-col items-start leading-tight">
+            <span class="font-bold text-[#111111] text-[13.5px]">IP Protection</span>
+            <span class="text-gray-400 text-[11.5px] mt-0.5">Your digital assets stay yours</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3.5">
+          <svg class="w-[18px] h-[18px] text-gray-400/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <div class="flex flex-col items-start leading-tight">
+            <span class="font-bold text-[#111111] text-[13.5px]">Verified Space</span>
+            <span class="text-gray-400 text-[11.5px] mt-0.5">Built for independent founders</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-[11px] font-medium text-gray-400/90 tracking-wide mt-2">© 2026 Manch. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    const nameInput = document.getElementById('creatorName');
+    const identityInput = document.getElementById('creatorIdentity');
+    const bioInput = document.getElementById('creatorBio');
+    const usernameInput = document.getElementById('username');
+
+    const previewName = document.getElementById('previewName');
+    const previewIdentity = document.getElementById('previewIdentity');
+    const previewBio = document.getElementById('previewBio');
+    const usernameStatus = document.getElementById('usernameStatus');
+    const bioCounter = document.getElementById('bioCounter');
+
+    let isUsernameAvailable = true;
+
+    // ADDED: Sugession Mapping Matrix matching Page 2 radio value tokens
+    const suggestionsMap = {
+      'Educator': ['JEE Mentor', 'UPSC Mentor', 'English Teacher', 'Physics Teacher'],
+      'Creator': ['YouTuber', 'Podcaster', 'Video Creator', 'Influencer'],
+      'Designer': ['UI/UX Designer', 'Graphic Designer', 'Brand Designer', 'Product Designer'],
+      'Developer': ['Software Engineer', 'SaaS Founder', 'Web Developer', 'FullStack Dev'],
+      'Coach': ['Fitness Trainer', 'Life Coach', 'Business Mentor', 'Mindset Coach'],
+      'Other': ['Indie Founder', 'Digital Artist', 'Solopreneur', 'Content Strategist']
+    };
+
+    // ADDED: Dynamic Chip Generator Handler running on DOM content instantiation
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectedCategory = localStorage.getItem('manch_creatorCategory') || 'Other';
+      const suggestionsContainer = document.getElementById('profileSelectionForm') ? null : document.getElementById('identitySuggestions');
+      
+      if (suggestionsContainer) {
+        const activeSuggestions = suggestionsMap[selectedCategory] || suggestionsMap['Other'];
+        suggestionsContainer.innerHTML = ''; // Wipe stale templates
+
+        activeSuggestions.forEach(suggestion => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'identity-example px-3 py-1 rounded-full bg-[#F3EEFD] text-[#6D28D9] text-[11px] font-bold hover:bg-[#EAE2FB] transition-colors';
+          btn.textContent = suggestion;
+          btn.setAttribute('data-fill', suggestion);
+          
+          // Re-bind identical click filling behaviors safely
+          btn.addEventListener('click', () => {
+            identityInput.value = suggestion;
+            syncIdentity();
+            identityInput.focus();
+            identityInput.classList.remove('border-red-400');
+          });
+
+          suggestionsContainer.appendChild(btn);
+        });
+      }
+    });
+
+    function syncName() {
+      previewName.textContent = nameInput.value.trim() || 'Your Store Name';
+    }
+    // Fixed reference syncing layout logic for identity to ensure it hits premium-smooth nodes
+    function syncIdentity() {
+      previewIdentity.textContent = identityInput.value.trim() || 'Your Creator Identity';
+    }
+    function syncBio() {
+      previewBio.textContent = bioInput.value.trim() || 'Your bio will appear here.';
+      bioCounter.textContent = bioInput.value.length + ' / 150';
+    }
+
+    let availabilityTimeout;
+
+    function syncUsername() {
+      const clean = usernameInput.value.trim().toLowerCase().replace(/[^a-z0-9_.]/g, '');
+      usernameInput.value = clean;
+
+      clearTimeout(availabilityTimeout);
+
+      if (clean.length < 3) {
+        usernameStatus.classList.add('hidden');
+        usernameStatus.classList.remove('sm:flex');
+        isUsernameAvailable = false;
+        return;
+      }
+
+      usernameStatus.innerHTML = `
+        <svg class="w-3.5 h-3.5 animate-spin text-gray-400" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span class="text-gray-400">Checking...</span>
+      `;
+      usernameStatus.classList.remove('hidden');
+      usernameStatus.classList.add('sm:flex');
+
+      availabilityTimeout = setTimeout(async () => {
+        const resp = await fetch(`/checkName/${usernameInput.value}`);
+        const status = resp.status;
+        if (status==400) {
+          usernameStatus.innerHTML = `
+            <span class="text-xs">❌</span>
+            <span class="text-red-500">Taken</span>
+          `;
+          isUsernameAvailable = false;
+        } else {
+          usernameStatus.innerHTML = `
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-green-600">Available</span>
+          `;
+          isUsernameAvailable = true;
+        }
+      }, 400);
+    }
+
+    nameInput.addEventListener('input', syncName);
+    identityInput.addEventListener('input', syncIdentity);
+    bioInput.addEventListener('input', syncBio);
+    usernameInput.addEventListener('input', syncUsername);
+
+    syncName(); syncIdentity(); syncBio(); syncUsername();
+
+    const photoUpload = document.getElementById('photoUpload');
+    const photoPreviewImg = document.getElementById('photoPreviewImg');
+    const previewAvatarImg = document.getElementById('previewAvatarImg');
+
+    let selectedPhotoBase64 = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'><circle cx='12' cy='8' r='4'/><path d='M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>";
+
+    photoUpload.addEventListener('change', () => {
+      const file = photoUpload.files && photoUpload.files[0];
+      if (!file) return;
+      
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const MAX_WIDTH = 200;
+          const scaleSize = MAX_WIDTH / img.width;
+          
+          canvas.width = MAX_WIDTH;
+          canvas.height = img.height * scaleSize;
+          
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          
+          const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+          
+          photoPreviewImg.src = compressedBase64;
+          previewAvatarImg.src = compressedBase64;
+          selectedPhotoBase64 = compressedBase64;
+          photoUpload.classList.remove('border-red-400');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    const addLanguageBtn = document.getElementById('addLanguageBtn');
+    const languageGroup = document.getElementById('languageGroup');
+    const addLanguageWrapper = document.getElementById('addLanguageWrapper');
+    let customLangCount = 0;
+
+    function handleAddLanguageClick() {
+      addLanguageWrapper.innerHTML = `
+        <input type="text" id="inlineLangInput" placeholder="Type language..." 
+          class="px-4 py-1.5 rounded-full border border-[#7C3AED] text-[13px] font-medium text-[#111111] bg-white outline-none w-32 shadow-xs transition-all" />
+      `;
+      
+      const input = document.getElementById('inlineLangInput');
+      input.focus();
+
+      let isSaved = false;
+
+      function saveInlineLanguage() {
+        if (isSaved) return;
+        isSaved = true;
+
+        const value = input.value.trim();
+        
+        if (value) {
+          customLangCount += 1;
+          const id = 'langCustom' + customLangCount;
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.id = id;
+          checkbox.checked = true;
+          checkbox.className = 'hidden lang-chip-input peer';
+
+          const label = document.createElement('label');
+          label.setAttribute('for', id);
+          label.className = 'lang-chip-label flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-[13px] font-bold text-gray-600 cursor-pointer transition-colors';
+          label.innerHTML = `
+            <svg class="lang-check w-3.5 h-3.5 hidden" fill="none" stroke="#5B21B6" stroke-width="3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            ${value}
+          `;
+
+          languageGroup.insertBefore(checkbox, addLanguageWrapper);
+          languageGroup.insertBefore(label, addLanguageWrapper);
+        }
+
+        restoreAddButton();
+      }
+
+      function restoreAddButton() {
+        addLanguageWrapper.innerHTML = `
+          <button type="button" id="addLanguageBtn" class="flex items-center gap-1.5 px-4 py-2 rounded-full border border-dashed border-[#7C3AED]/50 text-[13px] font-bold text-[#7C3AED] hover:bg-[#7C3AED]/5 transition-colors cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14"/></svg>
+            Add More
+          </button>
+        `;
+        document.getElementById('addLanguageBtn').addEventListener('click', handleAddLanguageClick);
+      }
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          saveInlineLanguage();
+        }
+        if (e.key === 'Escape') {
+          isSaved = true;
+          restoreAddButton();
+        }
+      });
+
+      input.addEventListener('blur', saveInlineLanguage);
+    }
+
+    addLanguageBtn.addEventListener('click', handleAddLanguageClick);
+    async function upload(file){
+        console.log(file.type);
+          const {url,key} = await fetch(`/signup/api/upload-url?type=${file.type}`).then(r => r.json());
+          
+          const response = await fetch(url,{method: 'PUT',body : file , headers : {'Content-Type' : file.type }});
+    
+          if (!response.ok) {
+              const text = await response.text();
+
+              console.error('S3 error:', text);
+          }
+      }
+
+    const form = document.getElementById('identityForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitArrow = document.getElementById('submitArrow');
+    const submitSpinner = document.getElementById('submitSpinner');
+
+    form.addEventListener('submit',async  (e) => {
+      e.preventDefault();
+      
+      
+      const requiredFields = [nameInput, usernameInput, identityInput, bioInput];
+      let valid = true;
+
+      requiredFields.forEach((field) => {
+        if (!field.value.trim()) {
+          field.classList.add('border-red-400');
+          valid = false;
+        } else {
+          field.classList.remove('border-red-400');
+        }
+      });
+
+      const usernameValue = usernameInput.value.trim();
+      const usernameContainer = usernameInput.closest('.field-control');
+
+      if (!usernameValue || usernameValue.length < 3 || !isUsernameAvailable) {
+        if (usernameContainer) {
+          usernameContainer.classList.add('border-red-400');
+          usernameContainer.style.borderColor = '#F87171'; 
+        }
+        valid = false;
+      } else {
+        if (usernameContainer) {
+          usernameContainer.classList.remove('border-red-400');
+          usernameContainer.style.borderColor = ''; 
+        }
+      }
+
+      const uploadZone = document.querySelector('.upload-zone');
+      if (selectedPhotoBase64.startsWith('data:image/svg+xml')) {
+        uploadZone.classList.add('border-red-400');
+        valid = false;
+      } else {
+        uploadZone.classList.remove('border-red-400');
+      }
+
+      if (!valid) return;
+      
+      submitBtn.disabled = true;
+      submitText.textContent = 'Setting up your storefront...';
+      submitArrow.classList.add('hidden');
+      submitSpinner.classList.remove('hidden');
+
+      localStorage.setItem('manch_storeName', nameInput.value.trim());
+      localStorage.setItem('manch_username', usernameInput.value.trim());
+      localStorage.setItem('manch_identity', identityInput.value.trim());
+      localStorage.setItem('manch_bio', bioInput.value.trim());
+      localStorage.setItem('manch_avatar', selectedPhotoBase64);
+
+      const selectedLanguages = [];
+      if (document.getElementById('langEnglish').checked) selectedLanguages.push('English');
+      if (document.getElementById('langHindi').checked) selectedLanguages.push('Hindi');
+      if (document.getElementById('langTamil').checked) selectedLanguages.push('Tamil');
+      if (document.getElementById('langTelugu').checked) selectedLanguages.push('Telugu');
+      if (document.getElementById('langBengali').checked) selectedLanguages.push('Bengali');
+
+      document.querySelectorAll('.lang-chip-input[id^="langCustom"]:checked + label').forEach(label => {
+        selectedLanguages.push(label.textContent.trim());
+      });
+
+      await fetch('/creator/signup/page3',{method : "POST", headers : { "Content-Type" : "application/json"}, body : JSON.stringify({lang:selectedLanguages,fullName: nameInput.value.trim() ,userName : usernameInput.value.trim() ,identity : identityInput.value.trim(), bio : bioInput.value.trim()})});
+      localStorage.setItem('manch_languages', selectedLanguages.join(', '));
+      await upload(photoUpload.files[0]);
+      setTimeout(() => {
+        window.location.href = '/creator/signup/page4';
+      }, 1800);
+    });
+  </script>
+</body>
+</html>

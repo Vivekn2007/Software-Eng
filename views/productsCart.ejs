@@ -13,239 +13,168 @@
 
 <body>
     <div class="products w-[100vw] flex justify-center mt-8 not-md:w-[100vw]">
-        <div
-            class="prod  bg-white w-[90vw] rounded-2xl border-2 border-gray-400 justify-center flex  not-md:w-[90vw] hover:bg-gray-100">
-            <div class="p">
-                <div class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
-                    <div class="left flex space-x-5 justify-center items-center">
-                        <div class="img rounded-2xl "><img src="empty.webp"
-                                class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
-                                name="img"></div>
-                        <div class="detail">
-                            <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
-                                <%= name %>
-                            </p>
-                            <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
-                                <p class="">
-                                    <%=view%> views,
+        <div class="prod   bg-white w-[90vw] rounded-2xl border-2 border-gray-400 justify-center flex  not-md:w-[90vw] ">
+            <div class="p ">
+                <div class="w-[90vw] rounded-2xl border-2  border-transparent   hover:bg-gray-100  bg-clip-padding  justify-center flex">
+                    <div
+                        class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
+                        <div class="left flex space-x-5 justify-center items-center">
+                            <div class="img rounded-2xl "><img src="empty.webp"
+                                    class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
+                                    name="img"></div>
+                            <div class="detail">
+                                <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
+                                    <%= name %>
                                 </p>
+                                <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
+                                    <p class="">
+                                        <%=view%> views,
+                                    </p>
 
-                                <p class="">₹<%=sale%> sales</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="right flex justify-center items-center space-x-3.5">
-                        <div class="manage  "><button
-                                class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
-                        </div>
-                        <div class="view"><button
-                                class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
-                        </div>
-                        <div class="more"><button
-                                class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
-                                    class="fa-solid fa-ellipsis"></i></button>
-                            <div
-                                class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
-                                <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
-                                <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
-                                <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
-                                <div class="d4"><a>duplicate</a></div>
+                                    <p class="">₹<%=sale%> sales</p>
+                                </div>
 
                             </div>
                         </div>
+                        <div class="right flex justify-center items-center space-x-3.5">
+                            <div class="manage  "><button
+                                    class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
+                            </div>
+                            <div class="view"><button
+                                    class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
+                            </div>
+                            <div class="more"><button
+                                    class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
+                                        class="fa-solid fa-ellipsis"></i></button>
+                                <div
+                                    class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
+                                    <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
+                                    <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
+                                    <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
+                                    <div class="d4"><a>duplicate</a></div>
+
+                                </div>
+                            </div>
 
 
+                        </div>
                     </div>
+
+
+
+
+
 
                 </div>
                 <hr>
-                <div class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
-                    <div class="left flex space-x-5 justify-center items-center">
-                        <div class="img rounded-2xl "><img src="empty.webp"
-                                class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
-                                name="img"></div>
-                        <div class="detail">
-                            <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
-                                <%= name %>
-                            </p>
-                            <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
-                                <p class="">
-                                    <%=view%> views,
+                <div class="w-[90vw] rounded-2xl border-2  border-transparent   hover:bg-gray-100  bg-clip-padding  justify-center flex">
+                    <div
+                        class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
+                        <div class="left flex space-x-5 justify-center items-center">
+                            <div class="img rounded-2xl "><img src="empty.webp"
+                                    class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
+                                    name="img"></div>
+                            <div class="detail">
+                                <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
+                                    <%= name %>
                                 </p>
+                                <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
+                                    <p class="">
+                                        <%=view%> views,
+                                    </p>
 
-                                <p class="">₹<%=sale%> sales</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="right flex justify-center items-center space-x-3.5">
-                        <div class="manage  "><button
-                                class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
-                        </div>
-                        <div class="view"><button
-                                class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
-                        </div>
-                        <div class="more"><button
-                                class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
-                                    class="fa-solid fa-ellipsis"></i></button>
-                            <div
-                                class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
-                                <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
-                                <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
-                                <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
-                                <div class="d4"><a>duplicate</a></div>
+                                    <p class="">₹<%=sale%> sales</p>
+                                </div>
 
                             </div>
                         </div>
+                        <div class="right flex justify-center items-center space-x-3.5">
+                            <div class="manage  "><button
+                                    class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
+                            </div>
+                            <div class="view"><button
+                                    class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
+                            </div>
+                            <div class="more"><button
+                                    class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
+                                        class="fa-solid fa-ellipsis"></i></button>
+                                <div
+                                    class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
+                                    <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
+                                    <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
+                                    <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
+                                    <div class="d4"><a>duplicate</a></div>
+
+                                </div>
+                            </div>
 
 
+                        </div>
                     </div>
+
+
+
+
+
 
                 </div>
                 <hr>
-                <div class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
-                    <div class="left flex space-x-5 justify-center items-center">
-                        <div class="img rounded-2xl "><img src="empty.webp"
-                                class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
-                                name="img"></div>
-                        <div class="detail">
-                            <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
-                                <%= name %>
-                            </p>
-                            <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
-                                <p class="">
-                                    <%=view%> views,
+                <div class="w-[90vw] rounded-2xl border-2  border-transparent   hover:bg-gray-100  bg-clip-padding  justify-center flex">
+                    <div
+                        class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
+                        <div class="left flex space-x-5 justify-center items-center">
+                            <div class="img rounded-2xl "><img src="empty.webp"
+                                    class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
+                                    name="img"></div>
+                            <div class="detail">
+                                <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
+                                    <%= name %>
                                 </p>
+                                <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
+                                    <p class="">
+                                        <%=view%> views,
+                                    </p>
 
-                                <p class="">₹<%=sale%> sales</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="right flex justify-center items-center space-x-3.5">
-                        <div class="manage  "><button
-                                class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
-                        </div>
-                        <div class="view"><button
-                                class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
-                        </div>
-                        <div class="more"><button
-                                class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
-                                    class="fa-solid fa-ellipsis"></i></button>
-                            <div
-                                class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
-                                <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
-                                <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
-                                <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
-                                <div class="d4"><a>duplicate</a></div>
+                                    <p class="">₹<%=sale%> sales</p>
+                                </div>
 
                             </div>
                         </div>
+                        <div class="right flex justify-center items-center space-x-3.5">
+                            <div class="manage  "><button
+                                    class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
+                            </div>
+                            <div class="view"><button
+                                    class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
+                            </div>
+                            <div class="more"><button
+                                    class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
+                                        class="fa-solid fa-ellipsis"></i></button>
+                                <div
+                                    class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
+                                    <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
+                                    <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
+                                    <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
+                                    <div class="d4"><a>duplicate</a></div>
+
+                                </div>
+                            </div>
 
 
+                        </div>
                     </div>
+
+
+
+
+
 
                 </div>
-                <hr>
-                <div class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
-                    <div class="left flex space-x-5 justify-center items-center">
-                        <div class="img rounded-2xl "><img src="empty.webp"
-                                class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
-                                name="img"></div>
-                        <div class="detail">
-                            <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
-                                <%= name %>
-                            </p>
-                            <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
-                                <p class="">
-                                    <%=view%> views,
-                                </p>
-
-                                <p class="">₹<%=sale%> sales</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="right flex justify-center items-center space-x-3.5">
-                        <div class="manage  "><button
-                                class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
-                        </div>
-                        <div class="view"><button
-                                class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
-                        </div>
-                        <div class="more"><button
-                                class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
-                                    class="fa-solid fa-ellipsis"></i></button>
-                            <div
-                                class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
-                                <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
-                                <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
-                                <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
-                                <div class="d4"><a>duplicate</a></div>
-
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-                <hr>
-                <div class="p1 w-[80vw] h-[16vh] flex justify-between items-center not-md:w-[85vw] not-md:h-[15vmax]">
-                    <div class="left flex space-x-5 justify-center items-center">
-                        <div class="img rounded-2xl "><img src="empty.webp"
-                                class=" h-[12vh] w-[10vw] rounded-2xl not-md:w-[15vw] not-md:h-[7vmax] border-2 border-gray-400 "
-                                name="img"></div>
-                        <div class="detail">
-                            <p class="text-purple-500 font-serif font-bold text-xl not-md:text-base ">
-                                <%= name %>
-                            </p>
-                            <div class="sales flex text-base font-bold space-x-3 not-md:text-sm ">
-                                <p class="">
-                                    <%=view%> views,
-                                </p>
-
-                                <p class="">₹<%=sale%> sales</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="right flex justify-center items-center space-x-3.5">
-                        <div class="manage  "><button
-                                class="w-[10vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">Manage</button>
-                        </div>
-                        <div class="view"><button
-                                class="w-[8vw] h-[5vh] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:hidden hover:cursor-pointer hover:bg-gray-200">view</button>
-                        </div>
-                        <div class="more"><button
-                                class="w-[6vw] h-[3max] rounded-xl text-gray-500 font-bold border-2 border-gray-400 not-md:w-[8vw] not-md:[3vmax] hover:cursor-pointer hover:bg-gray-200"><i
-                                    class="fa-solid fa-ellipsis"></i></button>
-                            <div
-                                class="option w-[23vw] absolute bg-white  border-2 border-gray-400 rounded-xl text-center md:w-[8vw] not-md:right-5 hidden">
-                                <div class="d1 border-b-2 border-gray-400 md:hidden "><a>Manage</a></div>
-                                <div class="d2 border-b-2 border-gray-400 md:hidden"><a>view</a></div>
-                                <div class="d2 border-b-2 border-gray-400"><a>delete</a></div>
-                                <div class="d4"><a>duplicate</a></div>
-
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-                
-                
-
-                
 
             </div>
 
+
         </div>
-
-
-    </div>
 </body>
 
 </html>

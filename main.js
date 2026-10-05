@@ -3,19 +3,38 @@ const express = require("express");
 const { dirname } = require("path");
 const app = express();
 const path = require("path");
-const mongoose = require('mongoose');
-// mongoose.connect(process.env.MONGODB_URI)
-// .then(()=>{
-//     console.log('MongoDB connected successfully');
-// }).catch((e)=>{
-//     console.log(e);
-// })
+const {User,Product,Order,Membership,Purchase} = require('./src/routes/DatabaseSchema.js');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const membershipRoutes = require('./src/routes/membership.js');
 
+const loginRoutes = require('./src/routes/Login.js');
+const passport = require('passport')
 publicPath = path.join(__dirname,"./public");
-
+app.use(express.urlencoded({extended : true}));
+app.use(express.json());
 app.use(express.static(publicPath));
 app.set('view engine','ejs');
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+    // This allows the session store to wait for the DB to be ready
+    mongoOptions: { 
+        serverSelectionTimeoutMS: 5000,
+        connectTimeoutMS: 10000 
+    }
+  })
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/membership',membershipRoutes);
+app.use('',loginRoutes);
 // app.get('/',(req,res)=>{ 
 //     const product={'symbol':'V'};
 //     res.render("navbar",product);   
@@ -49,12 +68,24 @@ app.get('/customer',(req,res)=>{
 })
 
 app.get('/settings',(req,res)=>{
-    res.render('settings',product);
+    res.render('settings',product); 
 })
+
+//checking payment checkout
+app.get('/test-checkout', (req, res) => {
+    res.render('test-checkout.ejs');
+});
+
+const paymentRoutes =
+require("./src/routes/paymentRoutes");
+
+app.use(express.json());
+
+app.use("/payment", paymentRoutes);
+
+
 
 
 app.listen(3000,()=>{
     console.log("listenning at 3000");
 })  
-
-

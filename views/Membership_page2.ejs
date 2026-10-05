@@ -24,71 +24,10 @@ body {
 
 <body>
 
-<div class="flex min-h-screen">
+<div class="flex min-h-screen bg-[#f5f3ff] not-md:block">
 
 <!-- ================= SIDEBAR ================= -->
-<aside class="bg-[#1A0533] w-[260px] min-h-screen flex flex-col justify-between p-5 shrink-0 shadow-2xl">
-
-    <div>
-        <!-- Logo -->
-        <div class="flex items-center gap-3.5 p-2.5">
-            <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] shadow-md"></div>
-            <div>
-                <p class="text-white text-lg font-extrabold tracking-tight">Manch</p>
-                <p class="text-[11px] font-medium text-white/40 uppercase tracking-wider mt-0.5">Creator Dashboard</p>
-            </div>
-        </div>
-
-        <!-- MAIN -->
-        <div class="border-t border-white/10 mt-6 pt-6">
-            <p class="text-[10px] uppercase font-bold tracking-widest text-white/30 px-3 mb-2">Main</p>
-            <div class="space-y-1">
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">
-                    Dashboard
-                </a>
-                <a class="block px-3.5 py-2.5 text-sm font-bold rounded-xl bg-[#7C3AED33] border border-[#7C3AED55] text-white shadow-inner cursor-pointer">
-                    Products
-                </a>
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">
-                    Orders
-                </a>
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">
-                    Customers
-                </a>
-            </div>
-        </div>
-
-        <!-- GROW -->
-        <div class="border-t border-white/10 mt-6 pt-6">
-            <p class="text-[10px] uppercase font-bold tracking-widest text-white/30 px-3 mb-2">Grow</p>
-            <div class="space-y-1">
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">
-                    Analytics
-                </a>
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">
-                    Marketing
-                </a>
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">
-                    Blog
-                </a>
-            </div>
-        </div>
-
-        <!-- SETTINGS -->
-        <div class="border-t border-white/10 mt-6 pt-4">
-            <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5 cursor-pointer">
-                Settings
-            </a>
-        </div>
-    </div>
-
-    <!-- Store Card -->
-    <div class="bg-white/5 rounded-2xl p-4 border border-white/10 mx-1">
-        <p class="text-[#EC4899] text-xs font-bold uppercase tracking-wider">Your Store</p>
-        <p class="text-white/60 text-xs mt-1.5 font-medium truncate">manch.in/store/live</p>
-    </div>
-
-</aside>
+<%- include('navbar.ejs'); %>
 
 <!-- ================= MAIN CONTENT ================= -->
 <main class="flex-1 p-8 lg:p-12 overflow-y-auto">
@@ -148,7 +87,7 @@ body {
                 Posts allow you to provide private content to your customers
             </p>
 
-     <a href="member3.html" class="inline-block mt-8 px-9 py-3 bg-[#8B2CF5] hover:bg-[#7C22DD] text-white text-lg font-bold rounded-2xl shadow-md text-center transition-all cursor-pointer">
+     <a href="/membership/page3/" class="inline-block mt-8 px-9 py-3 bg-[#8B2CF5] hover:bg-[#7C22DD] text-white text-lg font-bold rounded-2xl shadow-md text-center transition-all cursor-pointer">
     Manage Posts
 </a>
 

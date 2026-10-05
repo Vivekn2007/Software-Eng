@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+</head>
+<body class="flex not-md:block bg-[#f5f3ff] ">
+    <%- include('navbar.ejs'); %>
+    <div class="min-h-screen overflow-y-scroll ">
+        <div class="h1 flex justify-center items-center w-[80vw] mt-4 not-md:w-[100vw]"><p class="text-base text-gray-500">Create new product</p></div>
+        <div class="h1 flex justify-center items-center w-[80vw] mt-4 not-md:w-[100vw]"><p class="text-4xl text-gray-800 font-serif">Select a product type</p></div>
+        <div class="products flex justify-center items-center h-[80vh]  ">
+            <div class="w-[20vmax] h-[15vmax] not-md:w-[85vw] not-md:h-[30vmax] flex justify-center items-center  bg-white border border-gray-400 group">
+                <div class="member w-[20vmax] not-md:w-[85vw] ">
+                    <div class="img w-[20vmax] flex justify-center items-center not-md:w-[85vw]"><img src="membership_icon.png " class="w-[10vmax] h-[10vmax] "></div>
+                   <div class="img w-[20vmax] flex justify-center items-center not-md:w-[85vw]"><p class="font-serif text-gray-500  group-hover:text-blue-500  ">MEMBERSHIP</p></div>
+                   <div class="img w-[20vmax] flex justify-center items-center not-md:w-[85vw]"><p class=" text-gray-500 ">Lock exclusive content behind a paywall</p></div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let addProductButtom = document.querySelector('.member');
+        addProductButtom.addEventListener('click',()=>{
+            window.location.href = '/membership/page1';
+        })
+    </script>
+</body>
+</html>

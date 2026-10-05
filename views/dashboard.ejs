@@ -5,11 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <style>
+        /* ── Global ── */
+        body {
+            background: #f0edff;
+        }
+
+        /* ── Stat cards ── */
+        .sales {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(109, 40, 217, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .sales:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(109, 40, 217, 0.15), 0 4px 10px rgba(0,0,0,0.07);
+        }
+
+        /* ── Stat icon badge ── */
+        .stat-icon-wrap {
+            box-shadow: 0 4px 12px rgba(110, 82, 232, 0.40);
+            border-radius: 0.75rem;
+        }
+
+        /* ── Products panel ── */
+        .prod {
+            box-shadow: 0 4px 20px rgba(109, 40, 217, 0.09), 0 1px 4px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s ease;
+        }
+        .prod:hover {
+            box-shadow: 0 8px 32px rgba(109, 40, 217, 0.14);
+        }
+
+        /* ── Transaction card ── */
+        .transaction {
+            box-shadow: 0 4px 20px rgba(109, 40, 217, 0.09), 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        /* ── Individual transaction rows ── */
+        .b2 {
+            transition: background 0.15s ease;
+        }
+        .b2:hover {
+            background: #faf8ff;
+        }
+
+        /* ── Transaction avatar ── */
+        .logo {
+            box-shadow: 0 2px 8px rgba(114, 86, 235, 0.35);
+        }
+
+        /* ── Quick actions card ── */
+        .actions {
+            box-shadow: 0 4px 20px rgba(109, 40, 217, 0.09), 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        /* ── Quick action tiles ── */
+        .d1 {
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            box-shadow: 0 1px 4px rgba(109, 40, 217, 0.07);
+            cursor: pointer;
+        }
+        .d1:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(109, 40, 217, 0.14);
+        }
+
+        /* ── Add product button ── */
+        button.add-btn {
+            box-shadow: 0 3px 10px rgba(124, 58, 237, 0.40);
+            transition: box-shadow 0.2s ease, transform 0.15s ease;
+        }
+        button.add-btn:hover {
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.52);
+            transform: translateY(-1px);
+        }
+
+        /* ── Bell / avatar icon buttons ── */
+        .noti {
+            transition: box-shadow 0.2s ease, transform 0.15s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .noti:hover {
+            box-shadow: 0 6px 18px rgba(109, 40, 217, 0.18);
+            transform: translateY(-2px);
+        }
+
+        /* ── Head section subtle separator ── */
+        .head {
+            border-bottom: 1px solid rgba(109, 40, 217, 0.08);
+        }
+    </style>
 </head>
 
 <body class="flex not-md:block">
     <%- include('navbar.ejs'); %>
-        <div class="main bg-[#f5f3ff] min-h-screen w-[80vw] not-md:w-[100vw] overflow-y-auto not-md:h-auto ">
+        <div class="main bg-[#f0edff] min-h-screen w-[80vw] not-md:w-[100vw] overflow-y-auto not-md:h-auto ">
             <div class="head w-[80vw] h-[15vh] flex justify-center items-center not-md:w-[100vw] ">
                 <div class="inner flex justify-between items-center w-[75vw] not-md:w-[90vw]">
                     <div class="details">
@@ -18,249 +108,228 @@
                     </div>
                     <div class="right flex justify-center items-center space-x-3 ">
                         <div
-                            class="noti w-[5vmin] h-[5vmin] flex justify-center items-center rounded-2xl border-2 border-black  not-md:hidden hover:cursor-pointer">
-                            <i class="fa-solid fa-bell text-2xl   "></i>
+                            class="noti w-[5vmin] h-[5vmin] flex justify-center items-center rounded-2xl border-2 border-black not-md:hidden hover:cursor-pointer">
+                            <i class="fa-solid fa-bell text-2xl"></i>
                         </div>
                         <div
-                            class="noti w-[5vmin] h-[5vmin]  rounded-[50%] flex justify-center items-center bg-gradient-to-br from-[#9634f2] to-[#f8a10c] not-md:hidden hover:cursor-pointer">
-                            <p class="text-2xl text-white font-serif">
-                                <%=symbol%>
-                            </p>
+                            class="noti w-[5vmin] h-[5vmin] rounded-[50%] flex justify-center items-center bg-gradient-to-br from-[#9634f2] to-[#f8a10c] not-md:hidden hover:cursor-pointer">
+                            <p class="text-2xl text-white font-serif"><%=symbol%></p>
                         </div>
-
-
                     </div>
                 </div>
             </div>
 
             <div class="saleDet w-[80vw] h-[15vh] flex justify-center items-center not-md:w-[100vw] not-md:h-[60vh]">
                 <div
-                    class="w-[80vw] h-[15vh] flex justify-evenly items-center  not-md:block not-md:w-[90vw] not-md:space-y-3 not-md:h-[60vh]">
+                    class="w-[80vw] h-[15vh] flex justify-evenly items-center not-md:block not-md:w-[90vw] not-md:space-y-3 not-md:h-[60vh]">
+
+                    <!-- Sales this month -->
                     <div
-                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-300 flex justify-center items-center not-md:w-[90vw] ">
-                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw] ">
+                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-200 flex justify-center items-center not-md:w-[90vw]">
+                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw]">
                             <div class="det">
                                 <p class="text-[12px] text-gray-500 font-sans">Sales this month</p>
-                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=sales %>
-                                </p>
-                                <div
-                                    class="smbox w-[5vw] h-[3vh] rounded-4xl bg-amber-200 flex justify-center items-center not-md:w-[30vw]">
+                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=sales %></p>
+                                <div class="smbox w-[5vw] h-[3vh] rounded-4xl bg-amber-100 flex justify-center items-center not-md:w-[30vw]">
                                     <p class="text-[12px] text-orange-400 font-serif">This month</p>
                                 </div>
                             </div>
                             <div class="icon flex justify-end items-start h-[10vh]">
-                                <div
-                                    class="bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] rounded-xl flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
+                                <div class="stat-icon-wrap bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
                                     <i class="fa-solid fa-bag-shopping text-2xl text-amber-50"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
+                    <!-- Total orders -->
                     <div
-                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-300 flex justify-center items-center not-md:w-[90vw] ">
-                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw] ">
+                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-200 flex justify-center items-center not-md:w-[90vw]">
+                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw]">
                             <div class="det">
                                 <p class="text-[12px] text-gray-500 font-sans">Total orders</p>
-                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=order %>
-                                </p>
-                                <div
-                                    class="smbox w-[5vw] h-[3vh] rounded-4xl bg-green-500 flex justify-center items-center not-md:w-[30vw]">
-                                    <p class="text-[12px] text-green-800 font-serif">+<%=nord%> this week</p>
+                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=order %></p>
+                                <div class="smbox w-[5vw] h-[3vh] rounded-4xl bg-green-100 flex justify-center items-center not-md:w-[30vw]">
+                                    <p class="text-[12px] text-green-700 font-serif">+<%=nord%> this week</p>
                                 </div>
                             </div>
                             <div class="icon flex justify-end items-start h-[10vh]">
-                                <div
-                                    class="bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] rounded-xl flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
+                                <div class="stat-icon-wrap bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
                                     <i class="fa-solid fa-list text-2xl text-amber-50"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
+                    <!-- Total views -->
                     <div
-                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-300 flex justify-center items-center not-md:w-[90vw] ">
-                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw] ">
+                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-200 flex justify-center items-center not-md:w-[90vw]">
+                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw]">
                             <div class="det">
                                 <p class="text-[12px] text-gray-500 font-sans">Total views</p>
-                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=view %>
-                                </p>
-                                <div
-                                    class="smbox w-[5vw] h-[3vh] rounded-4xl bg-green-500 flex justify-center items-center not-md:w-[30vw]">
-                                    <p class="text-[12px] text-green-800 font-serif">
-                                        <%=perc%>%
-                                    </p>
+                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=view %></p>
+                                <div class="smbox w-[5vw] h-[3vh] rounded-4xl bg-green-100 flex justify-center items-center not-md:w-[30vw]">
+                                    <p class="text-[12px] text-green-700 font-serif"><%=perc%>%</p>
                                 </div>
                             </div>
                             <div class="icon flex justify-end items-start h-[10vh]">
-                                <div
-                                    class="bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] rounded-xl flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
+                                <div class="stat-icon-wrap bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
                                     <i class="fa-solid fa-eye text-2xl text-amber-50"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
+                    <!-- Products -->
                     <div
-                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-300 flex justify-center items-center not-md:w-[90vw] ">
-                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw] ">
+                        class="sales w-[15vw] h-[13vh] rounded-2xl bg-white border border-gray-200 flex justify-center items-center not-md:w-[90vw]">
+                        <div class="w-[13vw] flex justify-between items-center not-md:w-[70vw]">
                             <div class="det">
                                 <p class="text-[12px] text-gray-500 font-sans">Products</p>
-                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=product %>
-                                </p>
-                                <div
-                                    class="smbox w-[5vw] h-[3vh] rounded-4xl bg-amber-200 flex justify-center items-center not-md:w-[30vw]">
-                                    <p class="text-[12px] text-orange-400 font-serif">
-                                        <%=publish%> published
-                                    </p>
+                                <p class="text-2xl text-[#1A0533] font-serif font-bold">₹<%=product %></p>
+                                <div class="smbox w-[5vw] h-[3vh] rounded-4xl bg-amber-100 flex justify-center items-center not-md:w-[30vw]">
+                                    <p class="text-[12px] text-orange-400 font-serif"><%=publish%> published</p>
                                 </div>
                             </div>
                             <div class="icon flex justify-end items-start h-[10vh]">
-                                <div
-                                    class="bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] rounded-xl flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
+                                <div class="stat-icon-wrap bg-gradient-to-br from-[#6e52e8] to-[#f18e43] w-[5vmin] h-[5vmin] flex justify-center items-center not-md:w-[2.5rem] not-md:h-[2.5rem]">
                                     <i class="fa-solid fa-cart-shopping text-2xl text-amber-50"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
-
             </div>
-            <div class="products w-[80vw] flex justify-center items-center mt-5 not-md:w-[100vw] ">
-                <div class="w-[73vw] flex justify-between items-center not-md:block not-md:w-[90vw] not-md:space-y-4">
-                    <div class="w-[73vw] not-md:w-[90vw] ">
-                        <div
-                            class="prod w-[50vw] h-[40vh] bg-white rounded-2xl border border-gray-300 overflow-x-hidden overflow-y-scroll not-md:w-[90vw] ">
-                            <div
-                                class="head flex h-[6vh] w-[50vw] justify-center items-center border-b border-gray-300 not-md:w-[90vw] not-md:h-[18vmin]">
-                                <div class="inner  flex w-[40vw] justify-between items-center not-md:w-[70vw]">
-                                    <h1 class="text-[#1A0533] text-2xl font-bold font-sans ">Products</h1>
-                                    <div class="right flex justify-center items-center space-x-3 ">
 
+            <div class="products w-[80vw] flex justify-center items-center mt-5 not-md:w-[100vw]">
+                <div class="w-[73vw] flex justify-between items-center not-md:block not-md:w-[90vw] not-md:space-y-4">
+                    <div class="w-[73vw] not-md:w-[90vw]">
+                        <div
+                            class="prod w-[50vw] h-[40vh] bg-white rounded-2xl border border-gray-200 overflow-x-hidden overflow-y-scroll not-md:w-[90vw]">
+                            <div
+                                class="head flex h-[6vh] w-[50vw] justify-center items-center border-b border-gray-200 not-md:w-[90vw] not-md:h-[18vmin]">
+                                <div class="inner flex w-[40vw] justify-between items-center not-md:w-[70vw]">
+                                    <h1 class="text-[#1A0533] text-2xl font-bold font-sans">Products</h1>
+                                    <div class="right flex justify-center items-center space-x-3">
                                         <button
-                                            class="w-[6vmax] h-[3vmin] bg-gradient-to-br from-[#7c3aed] to-[#9333ea] text-white  rounded-2xl text-sm not-md:h-[12vmin] not-md:w-[12vmax] not-md:text-sm hover:cursor-pointer">Add
+                                            class="add-btn w-[10vmax] h-[4vmin] bg-gradient-to-br from-[#7c3aed] to-[#9333ea] text-white rounded-2xl text-sm not-md:h-[12vmin] not-md:w-[12vmax] not-md:text-sm hover:cursor-pointer">Add
                                             new product</button>
                                     </div>
                                 </div>
-
-
                             </div>
                             <iframe width="100%" src="/prodetails"
                                 class="overflow-y-hidden overflow-x-hidden h-full"></iframe>
                         </div>
                     </div>
 
-                    <div class="tran  space-y-6 ">
-                        <div class="transaction w-[20vw] h-[37vh] bg-white rounded-2xl border border-gray-300 not-md:w-[90vw] ">
-                            <div class="b1 flex justify-center items-center border-b border-gray-500">
+                    <div class="tran space-y-6">
+                        <div class="transaction w-[20vw] h-[37vh] bg-white rounded-2xl border border-gray-200 not-md:w-[90vw]">
+                            <div class="b1 flex justify-center items-center border-b border-gray-300">
                                 <div class="inner flex w-[16vw] justify-between items-center h-[6vh] not-md:w-[75vw]">
-                                    <p class="text-base ">Recent Transactions</p>
-                                    <a class="text-base text-[#9333ea]">See all→</a>
+                                    <p class="text-base font-semibold text-[#1A0533]">Recent Transactions</p>
+                                    <a class="text-base text-[#9333ea] hover:underline cursor-pointer">See all→</a>
                                 </div>
                             </div>
-                            
-                            <div class="b2 flex justify-center items-center border-b border-gray-400">
-                                <div class="w-[16vw] h-[6vh]  flex justify-between items-center not-md:w-[75vw]">
+
+                            <div class="b2 flex justify-center items-center border-b border-gray-200">
+                                <div class="w-[16vw] h-[6vh] flex justify-between items-center not-md:w-[75vw]">
                                     <div class="w-[9vw] flex justify-between items-center not-md:w-[36vw]">
-                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white">V</p></div>
-                                        <div class="detail ">
-                                            <p class="text-sm text-black">Vivek Narayan</p>
+                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white font-semibold">V</p></div>
+                                        <div class="detail">
+                                            <p class="text-sm text-black font-medium">Vivek Narayan</p>
                                             <p class="text-[10px] text-gray-400">5 hours ago</p>
                                         </div>
                                     </div>
                                     <div class="amount flex justify-center items-center space-x-2 not-md:space-x-7">
-                                        <p class="text-sm text-black">₹75</p>
-                                        <div class="w-[2vw] h-[2vh] bg-green-300 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
-                                            <p class="text-[11px] text-green-900">Paid</p>
+                                        <p class="text-sm font-semibold text-black">₹75</p>
+                                        <div class="w-[2vw] h-[2vh] bg-green-100 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
+                                            <p class="text-[11px] text-green-700 font-medium">Paid</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="b2 flex justify-center items-center border-b border-gray-400">
-                                <div class="w-[16vw] h-[6vh]  flex justify-between items-center not-md:w-[75vw]">
+                            <div class="b2 flex justify-center items-center border-b border-gray-200">
+                                <div class="w-[16vw] h-[6vh] flex justify-between items-center not-md:w-[75vw]">
                                     <div class="w-[9vw] flex justify-between items-center not-md:w-[36vw]">
-                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white">V</p></div>
-                                        <div class="detail ">
-                                            <p class="text-sm text-black">Vivek Narayan</p>
+                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white font-semibold">V</p></div>
+                                        <div class="detail">
+                                            <p class="text-sm text-black font-medium">Vivek Narayan</p>
                                             <p class="text-[10px] text-gray-400">5 hours ago</p>
                                         </div>
                                     </div>
                                     <div class="amount flex justify-center items-center space-x-2 not-md:space-x-7">
-                                        <p class="text-sm text-black">₹75</p>
-                                        <div class="w-[2vw] h-[2vh] bg-green-300 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
-                                            <p class="text-[11px] text-green-900">Paid</p>
+                                        <p class="text-sm font-semibold text-black">₹75</p>
+                                        <div class="w-[2vw] h-[2vh] bg-green-100 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
+                                            <p class="text-[11px] text-green-700 font-medium">Paid</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="b2 flex justify-center items-center border-b border-gray-400">
-                                <div class="w-[16vw] h-[6vh]  flex justify-between items-center not-md:w-[75vw]">
+                            <div class="b2 flex justify-center items-center border-b border-gray-200">
+                                <div class="w-[16vw] h-[6vh] flex justify-between items-center not-md:w-[75vw]">
                                     <div class="w-[9vw] flex justify-between items-center not-md:w-[36vw]">
-                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white">V</p></div>
-                                        <div class="detail ">
-                                            <p class="text-sm text-black">Vivek Narayan</p>
+                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white font-semibold">V</p></div>
+                                        <div class="detail">
+                                            <p class="text-sm text-black font-medium">Vivek Narayan</p>
                                             <p class="text-[10px] text-gray-400">5 hours ago</p>
                                         </div>
                                     </div>
                                     <div class="amount flex justify-center items-center space-x-2 not-md:space-x-7">
-                                        <p class="text-sm text-black">₹75</p>
-                                        <div class="w-[2vw] h-[2vh] bg-green-300 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
-                                            <p class="text-[11px] text-green-900">Paid</p>
+                                        <p class="text-sm font-semibold text-black">₹75</p>
+                                        <div class="w-[2vw] h-[2vh] bg-green-100 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
+                                            <p class="text-[11px] text-green-700 font-medium">Paid</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="b2 flex justify-center items-center border-b border-gray-400">
-                                <div class="w-[16vw] h-[6vh]  flex justify-between items-center not-md:w-[75vw]">
+                            <div class="b2 flex justify-center items-center border-b border-gray-200">
+                                <div class="w-[16vw] h-[6vh] flex justify-between items-center not-md:w-[75vw]">
                                     <div class="w-[9vw] flex justify-between items-center not-md:w-[36vw]">
-                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white">V</p></div>
-                                        <div class="detail ">
-                                            <p class="text-sm text-black">Vivek Narayan</p>
+                                        <div class="logo h-[5vmin] w-[5vmin] not-md:w-[8vmin] not-md:h-[8vmin] rounded-[50%] bg-gradient-to-br from-[#7256eb] to-[#eb56ab] flex justify-center items-center"><p class="text-base text-white font-semibold">V</p></div>
+                                        <div class="detail">
+                                            <p class="text-sm text-black font-medium">Vivek Narayan</p>
                                             <p class="text-[10px] text-gray-400">5 hours ago</p>
                                         </div>
                                     </div>
                                     <div class="amount flex justify-center items-center space-x-2 not-md:space-x-7">
-                                        <p class="text-sm text-black">₹75</p>
-                                        <div class="w-[2vw] h-[2vh] bg-green-300 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
-                                            <p class="text-[11px] text-green-900">Paid</p>
+                                        <p class="text-sm font-semibold text-black">₹75</p>
+                                        <div class="w-[2vw] h-[2vh] bg-green-100 rounded-2xl flex justify-center items-center not-md:w-[10vw]">
+                                            <p class="text-[11px] text-green-700 font-medium">Paid</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="b3 h-[6vh] flex justify-center items-center">
-                                <a class="text-base text-[#9333ea]">View all 10 Transactions→</a>
+                                <a class="text-base text-[#9333ea] hover:underline cursor-pointer">View all 10 Transactions→</a>
                             </div>
-
                         </div>
 
-                        <div class="actions w-[20vw] h-[20vh] bg-white rounded-2xl border border-gray-300 not-md:w-[90vw]">
+                        <div class="actions w-[20vw] h-[20vh] bg-white rounded-2xl border border-gray-200 not-md:w-[90vw]">
                             <div class="w-[20vw] h-[5vh] flex justify-center items-center not-md:w-[90vw]">
                                 <div class="w-[17vw] h-[5vh] flex justify-start items-center not-md:w-[80vw]">
-                                    <p class="text-base text-black font-serif">Quick Actions</p>
+                                    <p class="text-base text-black font-semibold">Quick Actions</p>
                                 </div>
-                                
                             </div>
                             <div class="w-[20vw] flex justify-center items-center h-[14vh] not-md:w-[90vw]">
-                                <div class="w-[17vw] flex flex-wrap justify-center items-center gap-1.5 not-md:w-[80vw] ">
+                                <div class="w-[17vw] flex flex-wrap justify-center items-center gap-1.5 not-md:w-[80vw]">
                                     <div class="d1 h-[5vh] w-[8vw] bg-[#f5f3ff] rounded-xl flex items-end justify-start not-md:w-[35vw]">
-                                        <a class="text-[13px] text-black  ml-3 mb-2 font-bold">Add product</a>
+                                        <a class="text-[13px] text-[#6d28d9] ml-3 mb-2 font-bold">Add product</a>
                                     </div>
                                     <div class="d1 h-[5vh] w-[8vw] bg-[#fff7ed] rounded-xl flex items-end justify-start not-md:w-[35vw]">
-                                        <a class="text-[13px] text-black  ml-3 mb-2 font-bold">Marketing↗</a>
+                                        <a class="text-[13px] text-[#c2410c] ml-3 mb-2 font-bold">Marketing↗</a>
                                     </div>
                                     <div class="d1 h-[5vh] w-[8vw] bg-[#ecfdf5] rounded-xl flex items-end justify-start not-md:w-[35vw]">
-                                        <a class="text-[13px] text-black  ml-3 mb-2 font-bold">Analytics↗</a>
+                                        <a class="text-[13px] text-[#065f46] ml-3 mb-2 font-bold">Analytics↗</a>
                                     </div>
                                     <div class="d1 h-[5vh] w-[8vw] bg-[#eff6ff] rounded-xl flex items-end justify-start not-md:w-[35vw]">
-                                        <a class="text-[13px] text-black  ml-3 mb-2 font-bold">Write Blog↗</a>
+                                        <a class="text-[13px] text-[#1d4ed8] ml-3 mb-2 font-bold">Write Blog↗</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>

@@ -20,13 +20,22 @@
   },
   "homepage": "https://github.com/anshsri585-oss/Manch#readme",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1073.0",
+    "@aws-sdk/s3-request-presigner": "^3.1073.0",
     "@tailwindcss/cli": "^4.3.0",
+    "connect-mongo": "^4.6.0",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "mongoose": "^9.6.3",
+    "mongoose-findorcreate": "^4.0.0",
     "nodemon": "^3.1.14",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
     "path": "^0.12.7",
+    "slugify": "^1.6.9",
+    "razorpay": "^2.9.6",
     "tailwindcss": "^4.3.0"
   }
 }

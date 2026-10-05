@@ -1,241 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Memberships - Manch</title>
+    <title>Memberships - Manch</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-<style>
-body{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    background:#F8F9FA;
-}
-</style>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #F8F9FA;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="flex min-h-screen">
+    <div class="flex min-h-screen bg-[#f5f3ff] not-md:block">
 
-<!-- ================= SIDEBAR ================= -->
-<aside class="bg-[#1A0533] w-[260px] min-h-screen flex flex-col justify-between p-5 shrink-0 shadow-2xl">
+        <!-- ================= SIDEBAR ================= -->
+        <%- include('navbar.ejs'); %>
 
-    <div>
+            <!-- ================= MAIN CONTENT ================= -->
+            <main class="flex-1 p-8 lg:p-12 overflow-y-auto">
 
-        <!-- Logo -->
-        <div class="flex items-center gap-3.5 p-2.5">
-            <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] shadow-md"></div>
+                <!-- Header -->
+                <form action="/membership/page1" method="post">
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E5E7EB] pb-6 mb-10">
 
-            <div>
-                <p class="text-white text-lg font-extrabold tracking-tight">
-                    Manch
-                </p>
+                        <div>
 
-                <p class="text-[11px] font-medium text-white/40 uppercase tracking-wider mt-0.5">
-                    Creator Dashboard
-                </p>
-            </div>
-        </div>
+                            <p class="text-xs font-bold text-[#7C3AED] uppercase tracking-widest">
+                                Membership Management
+                            </p>
 
-        <!-- MAIN -->
-        <div class="border-t border-white/10 mt-6 pt-6">
+                            <h1 class="text-4xl font-extrabold text-[#111111] tracking-tight mt-1">
+                                Memberships
+                            </h1>
 
-            <p class="text-[10px] uppercase font-bold tracking-widest text-white/30 px-3 mb-2">
-                Main
-            </p>
+                            <p class="text-sm text-[#6B7280] font-medium mt-1">
+                                Create and manage your membership products.
+                            </p>
 
-            <div class="space-y-1">
+                        </div>
 
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5">
-                    Dashboard
-                </a>
+                        <div class="flex items-center gap-4">
 
-              <a class="block px-3.5 py-2.5 text-sm font-bold rounded-xl bg-[#7C3AED33] border border-[#7C3AED55] text-white shadow-inner">
-                Products
-                 </a>
+                            <button
+                                class="w-11 h-11 bg-white rounded-xl border border-[#E5E7EB] flex items-center justify-center shadow-sm relative">
+                                <span class="w-2 h-2 rounded-full bg-[#EC4899] absolute top-3 right-3"></span>
+                                🔔
+                            </button>
 
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5">
-                    Orders
-                </a>
+                            <div
+                                class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] flex items-center justify-center text-white font-bold shadow-md">
+                                M
+                            </div>
 
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5">
-                    Customers
-                </a>
+                        </div>
 
-            </div>
-        </div>
+                    </div>
 
-        <!-- GROW -->
-        <div class="border-t border-white/10 mt-6 pt-6">
+                    <!-- Membership Card -->
+                    <div class="max-w-4xl mx-auto">
 
-            <p class="text-[10px] uppercase font-bold tracking-widest text-white/30 px-3 mb-2">
-                Grow
-            </p>
+                        <div class="bg-white rounded-3xl border border-[#E5E7EB] shadow-sm p-10">
 
-            <div class="space-y-1">
+                            <div class="text-center mb-8">
 
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5">
-                    Analytics
-                </a>
+                                <h2 class="text-3xl font-extrabold text-[#111111]">
+                                    Add New Membership
+                                </h2>
 
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5">
-                    Marketing
-                </a>
+                                <p class="text-sm text-[#6B7280] mt-3">
+                                    To get started, choose the membership title —
+                                    you can change it later.
+                                </p>
 
-                <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5">
-                    Blog
-                </a>
+                            </div>
 
-            </div>
-        </div>
+                            <div>
 
-        <!-- SETTINGS -->
-        <div class="border-t border-white/10 mt-6 pt-4">
+                                <label class="block text-sm font-bold text-[#374151] mb-3">
+                                    Membership Title
+                                </label>
 
-            <a class="block px-3.5 py-2.5 text-sm font-medium rounded-xl text-white/60 hover:text-white hover:bg-white/5">
-                Settings
-            </a>
+                                <input id="membership-title" type="text" name="title"
+                                    placeholder="Type membership title here..."
+                                    class="w-full h-12 px-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA] focus:outline-none focus:border-[#7C3AED] focus:bg-white transition-all">
 
-        </div>
+                            </div>
+
+                            <div class="flex justify-end mt-8">
+                                <input type="submit" id="add-membership-btn" value="Add Membership" disabled
+                                    class="opacity-50 cursor-not-allowed inline-block px-9 py-3.5 rounded-xl bg-gradient-to-r from-[#7C3AED] to-[#9333EA] text-white font-bold text-center shadow-lg transition-all duration-300 transform ease-out">
+                                    
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+    </div>
+
+    </main>
 
     </div>
 
-    <!-- Store Card -->
-    <div class="bg-white/5 rounded-2xl p-4 border border-white/10 mx-1">
-        <p class="text-[#EC4899] text-xs font-bold uppercase tracking-wider">
-            Your Store
-        </p>
+    <script>
+        const titleInput = document.getElementById('membership-title');
+        const addBtn = document.getElementById('add-membership-btn');
 
-        <p class="text-white/60 text-xs mt-1.5 font-medium truncate">
-            manch.in/store/live
-        </p>
-    </div>
+        titleInput.addEventListener('input', () => {
+            // Check if the input contains non-whitespace text
+            if (titleInput.value.trim().length > 0) {
+                // Enable button and apply the big size transition layout
+                addBtn.removeAttribute('disabled');
+                addBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                addBtn.classList.add('hover:scale-108', 'active:scale-98', 'cursor-pointer');
+            } else {
+                // Disable button and strip the hover animations
+                addBtn.setAttribute('disabled', 'true');
+                addBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                addBtn.classList.remove('hover:scale-108', 'active:scale-98', 'cursor-pointer');
+            }
+        });
 
-</aside>
-
-<!-- ================= MAIN CONTENT ================= -->
-<main class="flex-1 p-8 lg:p-12 overflow-y-auto">
-
-    <!-- Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E5E7EB] pb-6 mb-10">
-
-        <div>
-
-            <p class="text-xs font-bold text-[#7C3AED] uppercase tracking-widest">
-                Membership Management
-            </p>
-
-            <h1 class="text-4xl font-extrabold text-[#111111] tracking-tight mt-1">
-                Memberships
-            </h1>
-
-            <p class="text-sm text-[#6B7280] font-medium mt-1">
-                Create and manage your membership products.
-            </p>
-
-        </div>
-
-        <div class="flex items-center gap-4">
-
-            <button class="w-11 h-11 bg-white rounded-xl border border-[#E5E7EB] flex items-center justify-center shadow-sm relative">
-                <span class="w-2 h-2 rounded-full bg-[#EC4899] absolute top-3 right-3"></span>
-                🔔
-            </button>
-
-            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#7C3AED] to-[#EC4899] flex items-center justify-center text-white font-bold shadow-md">
-                M
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Membership Card -->
-    <div class="max-w-4xl mx-auto">
-
-        <div class="bg-white rounded-3xl border border-[#E5E7EB] shadow-sm p-10">
-
-            <div class="text-center mb-8">
-
-                <h2 class="text-3xl font-extrabold text-[#111111]">
-                    Add New Membership
-                </h2>
-
-                <p class="text-sm text-[#6B7280] mt-3">
-                    To get started, choose the membership title —
-                    you can change it later.
-                </p>
-
-            </div>
-
-            <div>
-
-                <label class="block text-sm font-bold text-[#374151] mb-3">
-                    Membership Title
-                </label>
-
-            <input
-            id="membership-title"
-            type="text"
-            placeholder="Type membership title here..."
-            class="w-full h-12 px-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAFA] focus:outline-none focus:border-[#7C3AED] focus:bg-white transition-all"
-             >
-
-            </div>
-
-<div class="flex justify-end mt-8">
-    <button 
-        id="add-membership-btn"
-        disabled
-        class="opacity-50 cursor-not-allowed inline-block px-9 py-3.5 rounded-xl bg-gradient-to-r from-[#7C3AED] to-[#9333EA] text-white font-bold text-center shadow-lg transition-all duration-300 transform ease-out"
-    >
-        Add Membership
-    </button>
-</div>
-
-</div>
-
-        </div>
-
-    </div>
-
-</main>
-
-</div>
- 
-<script>
-const titleInput = document.getElementById('membership-title');
-const addBtn = document.getElementById('add-membership-btn');
-
-titleInput.addEventListener('input', () => {
-    // Check if the input contains non-whitespace text
-    if (titleInput.value.trim().length > 0) {
-        // Enable button and apply the big size transition layout
-        addBtn.removeAttribute('disabled');
-        addBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-        addBtn.classList.add('hover:scale-108', 'active:scale-98', 'cursor-pointer');
-    } else {
-        // Disable button and strip the hover animations
-        addBtn.setAttribute('disabled', 'true');
-        addBtn.classList.add('opacity-50', 'cursor-not-allowed');
-        addBtn.classList.remove('hover:scale-108', 'active:scale-98', 'cursor-pointer');
-    }
-});
-
-// Redirect to member2.html when clicked
-addBtn.addEventListener('click', () => {
-    if (!addBtn.hasAttribute('disabled')) {
-        window.location.href = 'member2.html';
-    }
-});
-</script>
+        // Redirect to member2.html when clicked
+        addBtn.addEventListener('click', () => {
+            if (!addBtn.hasAttribute('disabled')) {
+                window.location.href = '/membership/page2';
+            }
+        });
+    </script>
 </body>
+
 </html>
